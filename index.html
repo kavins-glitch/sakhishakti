@@ -1,0 +1,2897 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Sakhi Shakti – महिला स्वास्थ्य नेटवर्क</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Noto+Sans+Devanagari:wght@400;500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --saffron: #E8720C;
+    --saffron-light: #FFF0E0;
+    --saffron-dark: #C05A00;
+    --green: #1B7A3A;
+    --green-light: #E8F5EE;
+    --green-dark: #0D5228;
+    --gold: #D4A017;
+    --gold-light: #FFF8E1;
+    --cream: #FDFAF4;
+    --white: #FFFFFF;
+    --text-dark: #1A1A1A;
+    --text-mid: #4A4A4A;
+    --text-light: #888;
+    --border: rgba(0,0,0,0.1);
+    --shadow-sm: 0 2px 12px rgba(0,0,0,0.08);
+    --shadow-md: 0 8px 32px rgba(0,0,0,0.12);
+    --shadow-lg: 0 16px 48px rgba(0,0,0,0.16);
+    --radius: 16px;
+    --radius-lg: 24px;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Poppins', 'Noto Sans Devanagari', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    font-size: 15px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  .lang-en .hi { display: none !important; }
+  .lang-hi .en { display: none !important; }
+
+  /* ===== AGF INITIATIVE BAR ===== */
+  .agf-initiative-bar {
+    background: linear-gradient(90deg, var(--green-dark) 0%, #0a3d1f 50%, var(--green-dark) 100%);
+    color: #fff;
+    text-align: center;
+    padding: 10px 20px;
+    font-size: 13px;
+    letter-spacing: 0.3px;
+    border-bottom: 2px solid var(--gold);
+  }
+
+  .agf-initiative-bar a {
+    color: var(--gold);
+    font-weight: 700;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+
+  .agf-initiative-bar a:hover { opacity: 0.8; text-decoration: underline; }
+
+  /* ===== TOPBAR ===== */
+  .topbar {
+    background: var(--green-dark);
+    color: #fff;
+    text-align: center;
+    padding: 7px 16px;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+  }
+
+  /* ===== NAVBAR ===== */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 20px;
+  }
+
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 62px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .logo-icon {
+    width: 40px; height: 40px;
+    background: linear-gradient(135deg, var(--saffron), var(--gold));
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+  }
+
+  .logo-text { line-height: 1.2; }
+  .logo-text .brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--saffron-dark);
+    display: block;
+  }
+  .logo-text .tagline-small {
+    font-size: 10px;
+    color: var(--text-light);
+    display: block;
+  }
+  .logo-text .agf-sub {
+    font-size: 9.5px;
+    color: var(--green-dark);
+    display: block;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 6px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--text-mid);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 8px;
+    transition: all 0.2s;
+    display: block;
+  }
+
+  .nav-links a:hover, .nav-links a.active {
+    background: var(--saffron-light);
+    color: var(--saffron-dark);
+  }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .lang-toggle {
+    display: flex;
+    background: var(--green-light);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(27,122,58,0.2);
+  }
+
+  .lang-btn {
+    padding: 5px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    color: var(--green);
+    transition: all 0.2s;
+  }
+
+  .lang-btn.active {
+    background: var(--green);
+    color: white;
+    border-radius: 20px;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+    padding: 6px;
+    background: none;
+    border: none;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--text-dark);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  /* ===== PAGES ===== */
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* ===== HERO ===== */
+  .hero {
+    position: relative;
+    overflow: hidden;
+    padding: 60px 20px 80px;
+    background: linear-gradient(160deg, #FFF8F0 0%, #FDFAF4 50%, #EEF8F2 100%);
+  }
+
+  .hero-pattern {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle at 20% 20%, rgba(232,114,12,0.06) 0%, transparent 50%),
+                      radial-gradient(circle at 80% 80%, rgba(27,122,58,0.06) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .hero-mandala {
+    position: absolute;
+    right: -60px;
+    top: -60px;
+    width: 320px;
+    height: 320px;
+    opacity: 0.05;
+    pointer-events: none;
+  }
+
+  .hero-content {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--saffron-light);
+    border: 1px solid rgba(232,114,12,0.25);
+    color: var(--saffron-dark);
+    padding: 6px 16px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+  }
+
+  /* AGF hero badge */
+  .agf-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--green-light);
+    border: 1px solid rgba(27,122,58,0.25);
+    color: var(--green-dark);
+    padding: 5px 14px;
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    letter-spacing: 0.3px;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 7vw, 54px);
+    font-weight: 900;
+    line-height: 1.15;
+    margin-bottom: 16px;
+    color: var(--text-dark);
+  }
+
+  .hero h1 .highlight {
+    color: var(--saffron);
+    position: relative;
+    display: inline-block;
+  }
+
+  .hero h1 .highlight::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--saffron);
+    border-radius: 2px;
+    opacity: 0.3;
+  }
+
+  .hero p {
+    font-size: 16px;
+    color: var(--text-mid);
+    max-width: 540px;
+    margin: 0 auto 32px;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--saffron);
+    color: white;
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 4px 16px rgba(232,114,12,0.3);
+  }
+
+  .btn-primary:hover {
+    background: var(--saffron-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(232,114,12,0.4);
+  }
+
+  .btn-secondary {
+    background: white;
+    color: var(--green);
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 15px;
+    border: 2px solid var(--green);
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .btn-secondary:hover {
+    background: var(--green);
+    color: white;
+    transform: translateY(-1px);
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    max-width: 500px;
+    margin: 40px auto 0;
+  }
+
+  .stat-card {
+    background: white;
+    border-radius: var(--radius);
+    padding: 16px 12px;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+  }
+
+  .stat-num {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--saffron);
+    display: block;
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    color: var(--text-light);
+    margin-top: 4px;
+  }
+
+  /* ===== SECTION STYLES ===== */
+  section { padding: 60px 20px; }
+
+  .section-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .section-label {
+    display: inline-block;
+    background: var(--green-light);
+    color: var(--green-dark);
+    padding: 5px 14px;
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(24px, 5vw, 36px);
+    font-weight: 700;
+    color: var(--text-dark);
+    line-height: 1.25;
+  }
+
+  .section-sub {
+    font-size: 15px;
+    color: var(--text-mid);
+    max-width: 560px;
+    margin: 12px auto 0;
+  }
+
+  /* ===== AGF SECTION ===== */
+  .agf-section {
+    background: linear-gradient(135deg, #f0faf5 0%, #fff8f0 100%);
+    border-top: 3px solid var(--gold);
+    border-bottom: 3px solid var(--gold);
+    padding: 56px 20px;
+  }
+
+  .agf-founder-card {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 40px;
+    align-items: center;
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: 36px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border);
+    margin-bottom: 32px;
+  }
+
+  .agf-founder-visual {
+    text-align: center;
+  }
+
+  .agf-founder-avatar {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--saffron-light), var(--green-light));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 70px;
+    margin: 0 auto 16px;
+    border: 4px solid var(--gold);
+    box-shadow: 0 4px 20px rgba(212,160,23,0.25);
+  }
+
+  .agf-founder-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 4px;
+  }
+
+  .agf-founder-title {
+    font-size: 12px;
+    color: var(--saffron-dark);
+    font-weight: 600;
+    background: var(--saffron-light);
+    padding: 3px 12px;
+    border-radius: 100px;
+    display: inline-block;
+    margin-top: 6px;
+  }
+
+  .agf-founder-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: center;
+    margin-top: 12px;
+  }
+
+  .agf-tag {
+    font-size: 10.5px;
+    padding: 3px 10px;
+    border-radius: 100px;
+    background: var(--green-light);
+    color: var(--green-dark);
+    font-weight: 600;
+    border: 1px solid rgba(27,122,58,0.15);
+  }
+
+  .agf-founder-text h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    margin-bottom: 12px;
+    color: var(--text-dark);
+  }
+
+  .agf-founder-text p {
+    font-size: 14px;
+    color: var(--text-mid);
+    margin-bottom: 14px;
+    line-height: 1.75;
+  }
+
+  .agf-quote {
+    background: var(--gold-light);
+    border-left: 4px solid var(--gold);
+    padding: 14px 18px;
+    border-radius: 0 10px 10px 0;
+    margin: 16px 0;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--text-dark);
+  }
+
+  .agf-pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 14px;
+  }
+
+  .agf-pillar {
+    background: white;
+    border-radius: var(--radius);
+    padding: 18px 14px;
+    text-align: center;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.2s;
+  }
+
+  .agf-pillar:hover { transform: translateY(-2px); }
+
+  .agf-pillar .pillar-icon { font-size: 28px; margin-bottom: 8px; }
+
+  .agf-pillar h4 {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 4px;
+  }
+
+  .agf-pillar p {
+    font-size: 11px;
+    color: var(--text-light);
+  }
+
+  .agf-badges-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+    justify-content: center;
+  }
+
+  .agf-badge-pill {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: white;
+    border: 1.5px solid var(--gold);
+    color: var(--text-dark);
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 600;
+    box-shadow: var(--shadow-sm);
+  }
+
+  /* ===== ABOUT PAGE ===== */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .about-visual {
+    background: linear-gradient(135deg, var(--saffron-light), var(--green-light));
+    border-radius: var(--radius-lg);
+    padding: 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-visual .big-icon {
+    font-size: 80px;
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  .about-visual h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: var(--text-dark);
+  }
+
+  .about-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    margin-bottom: 16px;
+    color: var(--text-dark);
+  }
+
+  .about-text p {
+    color: var(--text-mid);
+    margin-bottom: 16px;
+    font-size: 15px;
+  }
+
+  .value-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 20px;
+  }
+
+  .value-pill {
+    background: var(--saffron-light);
+    color: var(--saffron-dark);
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 600;
+    border: 1px solid rgba(232,114,12,0.2);
+  }
+
+  /* ===== MISSION VISION ===== */
+  .mv-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .mv-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .mv-card.mission { border-top: 4px solid var(--saffron); }
+  .mv-card.vision { border-top: 4px solid var(--green); }
+
+  .mv-card .card-icon {
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+
+  .mv-card.mission .card-icon { background: var(--saffron-light); }
+  .mv-card.vision .card-icon { background: var(--green-light); }
+
+  .mv-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .mv-card p { color: var(--text-mid); font-size: 14px; }
+
+  /* ===== SERVICES ===== */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+  }
+
+  .service-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: 28px 24px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+    transition: all 0.3s;
+    cursor: default;
+  }
+
+  .service-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-3px);
+    border-color: rgba(232,114,12,0.2);
+  }
+
+  .service-icon {
+    width: 52px; height: 52px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    margin-bottom: 16px;
+  }
+
+  .service-card h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-dark);
+  }
+
+  .service-card p {
+    font-size: 13px;
+    color: var(--text-mid);
+    line-height: 1.6;
+  }
+
+  /* ===== HEALTH PAGE ===== */
+  .health-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .health-card {
+    background: white;
+    border-radius: var(--radius);
+    padding: 24px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .health-card h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .health-card ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .health-card ul li {
+    font-size: 13px;
+    color: var(--text-mid);
+    padding: 6px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .health-card ul li:last-child { border-bottom: none; }
+
+  .check { color: var(--green); font-weight: bold; flex-shrink: 0; margin-top: 1px; }
+
+  .screening-flow {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .flow-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px 0;
+    position: relative;
+  }
+
+  .flow-step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 52px;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--saffron), transparent);
+  }
+
+  .step-num {
+    width: 40px; height: 40px;
+    background: var(--saffron);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+
+  .step-content h4 { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+  .step-content p { font-size: 13px; color: var(--text-mid); }
+
+  /* ===== REGISTER FORM ===== */
+  .form-container {
+    max-width: 640px;
+    margin: 0 auto;
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: 40px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border);
+  }
+
+  .form-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    margin-bottom: 8px;
+    color: var(--text-dark);
+  }
+
+  .form-subtitle {
+    font-size: 14px;
+    color: var(--text-mid);
+    margin-bottom: 28px;
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .form-group.full { grid-column: 1 / -1; }
+
+  .form-group label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-dark);
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 12px 16px;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    font-size: 14px;
+    font-family: 'Poppins', 'Noto Sans Devanagari', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    transition: all 0.2s;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--saffron);
+    background: white;
+    box-shadow: 0 0 0 3px rgba(232,114,12,0.1);
+  }
+
+  .form-group select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23888' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 36px;
+  }
+
+  .form-group textarea { resize: vertical; min-height: 80px; }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 4px;
+  }
+
+  .skill-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    padding: 10px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    transition: all 0.2s;
+    font-size: 13px;
+    background: var(--cream);
+  }
+
+  .skill-checkbox:hover { border-color: var(--saffron); background: var(--saffron-light); }
+
+  .skill-checkbox input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--saffron);
+    flex-shrink: 0;
+    padding: 0;
+    border: none;
+  }
+
+  .skill-checkbox input[type="checkbox"]:focus { box-shadow: none; border-color: transparent; }
+
+  .skill-checkbox.selected {
+    border-color: var(--saffron);
+    background: var(--saffron-light);
+    color: var(--saffron-dark);
+    font-weight: 500;
+  }
+
+  .submit-btn {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, var(--saffron), var(--saffron-dark));
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: all 0.2s;
+    box-shadow: 0 4px 16px rgba(232,114,12,0.3);
+  }
+
+  .submit-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(232,114,12,0.4);
+  }
+
+  .success-msg {
+    display: none;
+    text-align: center;
+    padding: 32px;
+  }
+
+  .success-msg .success-icon { font-size: 60px; display: block; margin-bottom: 16px; }
+  .success-msg h3 { font-family: 'Playfair Display', serif; font-size: 22px; margin-bottom: 8px; }
+  .success-msg p { color: var(--text-mid); font-size: 14px; }
+
+  /* ===== CHATBOT ===== */
+  .chat-fab {
+    position: fixed;
+    bottom: 24px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--saffron), var(--gold));
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    box-shadow: 0 4px 20px rgba(232,114,12,0.5);
+    z-index: 9999;
+    transition: all 0.3s;
+    animation: pulse-chat 2s infinite;
+  }
+
+  @keyframes pulse-chat {
+    0%, 100% { box-shadow: 0 4px 20px rgba(232,114,12,0.5); }
+    50% { box-shadow: 0 4px 30px rgba(232,114,12,0.7), 0 0 0 8px rgba(232,114,12,0.1); }
+  }
+
+  .chat-fab:hover { transform: scale(1.08); animation: none; }
+
+  .chat-window {
+    display: none;
+    position: fixed;
+    bottom: 94px;
+    right: 16px;
+    width: min(380px, calc(100vw - 32px));
+    height: 500px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border);
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 9998;
+  }
+
+  .chat-window.open { display: flex; }
+
+  .chat-header {
+    background: linear-gradient(135deg, var(--saffron), var(--saffron-dark));
+    color: white;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .chat-avatar {
+    width: 40px; height: 40px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
+  .chat-info .chat-name { font-weight: 700; font-size: 15px; }
+  .chat-info .chat-status { font-size: 12px; opacity: 0.85; }
+
+  .chat-close {
+    margin-left: auto;
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: white;
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background 0.2s;
+  }
+
+  .chat-close:hover { background: rgba(255,255,255,0.3); }
+
+  .chat-lang-bar {
+    display: flex;
+    border-bottom: 1px solid var(--border);
+    background: var(--cream);
+  }
+
+  .chat-lang-opt {
+    flex: 1;
+    padding: 8px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    color: var(--text-mid);
+    transition: all 0.2s;
+    font-family: inherit;
+  }
+
+  .chat-lang-opt.active {
+    background: white;
+    color: var(--saffron);
+    border-bottom: 2px solid var(--saffron);
+  }
+
+  .chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .chat-messages::-webkit-scrollbar { width: 4px; }
+  .chat-messages::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+  .msg {
+    max-width: 85%;
+    padding: 10px 14px;
+    border-radius: 16px;
+    font-size: 13.5px;
+    line-height: 1.55;
+    animation: msg-in 0.2s ease;
+  }
+
+  @keyframes msg-in {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .msg.bot {
+    background: var(--saffron-light);
+    border: 1px solid rgba(232,114,12,0.15);
+    color: var(--text-dark);
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+  }
+
+  .msg.user {
+    background: var(--green);
+    color: white;
+    align-self: flex-end;
+    border-bottom-right-radius: 4px;
+  }
+
+  .msg.typing {
+    background: var(--saffron-light);
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    padding: 14px;
+  }
+
+  .dot {
+    width: 7px; height: 7px;
+    background: var(--saffron);
+    border-radius: 50%;
+    animation: bounce 1.2s infinite;
+  }
+  .dot:nth-child(2) { animation-delay: 0.2s; }
+  .dot:nth-child(3) { animation-delay: 0.4s; }
+
+  @keyframes bounce {
+    0%, 60%, 100% { transform: translateY(0); }
+    30% { transform: translateY(-6px); }
+  }
+
+  .chat-quick-replies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 8px 16px;
+    border-top: 1px solid var(--border);
+    background: var(--cream);
+  }
+
+  .quick-btn {
+    padding: 5px 12px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    font-size: 11.5px;
+    cursor: pointer;
+    font-family: inherit;
+    color: var(--text-mid);
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .quick-btn:hover { background: var(--saffron-light); border-color: var(--saffron); color: var(--saffron-dark); }
+
+  .chat-input-row {
+    display: flex;
+    gap: 8px;
+    padding: 12px 16px;
+    border-top: 1px solid var(--border);
+    background: white;
+  }
+
+  .chat-input {
+    flex: 1;
+    padding: 10px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: 50px;
+    font-size: 13px;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s;
+    background: var(--cream);
+    color: var(--text-dark);
+  }
+
+  .chat-input:focus { border-color: var(--saffron); background: white; }
+
+  .chat-send {
+    width: 38px; height: 38px;
+    background: var(--saffron);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.2s;
+  }
+
+  .chat-send:hover { background: var(--saffron-dark); transform: scale(1.05); }
+
+  /* ===== CONTACT PAGE ===== */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 32px;
+  }
+
+  .contact-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .contact-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    margin-bottom: 20px;
+  }
+
+  .contact-icon {
+    width: 44px; height: 44px;
+    background: var(--saffron-light);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
+  .contact-item h4 { font-size: 13px; font-weight: 600; margin-bottom: 3px; }
+  .contact-item p { font-size: 13px; color: var(--text-mid); }
+
+  .contact-form-wrap {
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: var(--text-dark);
+    color: rgba(255,255,255,0.7);
+    padding: 48px 20px 24px;
+    margin-top: 60px;
+  }
+
+  .footer-inner { max-width: 1100px; margin: 0 auto; }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 32px;
+    margin-bottom: 40px;
+  }
+
+  .footer-brand .logo-text .brand { color: var(--gold); font-size: 22px; }
+  .footer-brand .logo-text .tagline-small { color: rgba(255,255,255,0.5); font-size: 12px; }
+  .footer-brand .logo-text .agf-sub { color: var(--gold); opacity: 0.8; font-size: 10px; }
+  .footer-brand p { font-size: 13px; margin-top: 12px; line-height: 1.7; }
+
+  .footer-col h4 { color: white; font-size: 13px; font-weight: 600; margin-bottom: 14px; letter-spacing: 0.5px; }
+
+  .footer-col a {
+    display: block;
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    font-size: 13px;
+    padding: 3px 0;
+    transition: color 0.2s;
+    cursor: pointer;
+  }
+
+  .footer-col a:hover { color: var(--gold); }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .footer-bottom a { color: var(--gold); text-decoration: none; }
+
+  .sdg-badges {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+  }
+
+  .sdg-badge {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    color: rgba(255,255,255,0.7);
+  }
+
+  /* ===== IMPACT COUNTERS ===== */
+  .counters-section {
+    background: linear-gradient(135deg, var(--saffron), var(--saffron-dark));
+    color: white;
+    padding: 60px 20px;
+  }
+
+  .counters-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .counter-item .num {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 900;
+    display: block;
+    line-height: 1;
+  }
+
+  .counter-item .lbl { font-size: 13px; opacity: 0.85; margin-top: 6px; }
+
+  /* ===== TESTIMONIALS ===== */
+  .testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  .testimonial-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+    position: relative;
+  }
+
+  .testimonial-card::before {
+    content: '"';
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    font-size: 60px;
+    font-family: 'Playfair Display', serif;
+    color: var(--saffron-light);
+    line-height: 1;
+  }
+
+  .testimonial-text {
+    font-size: 14px;
+    color: var(--text-mid);
+    line-height: 1.7;
+    margin-bottom: 16px;
+    font-style: italic;
+  }
+
+  .testimonial-author { display: flex; align-items: center; gap: 12px; }
+
+  .author-avatar {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--saffron-light), var(--green-light));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
+  .author-name { font-weight: 600; font-size: 14px; }
+  .author-loc { font-size: 12px; color: var(--text-light); }
+
+  /* ===== PROGRAMME PAGE ===== */
+  .programme-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+  }
+
+  .prog-step {
+    background: white;
+    border-radius: var(--radius);
+    padding: 24px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+  }
+
+  .prog-num {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: var(--saffron);
+    color: white;
+    font-weight: 700;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 14px;
+  }
+
+  .prog-step h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; }
+  .prog-step p { font-size: 13px; color: var(--text-mid); }
+
+  .timeline {
+    position: relative;
+    max-width: 700px;
+    margin: 0 auto;
+    padding-left: 40px;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 16px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--saffron), var(--green));
+  }
+
+  .tl-item { position: relative; padding: 0 0 28px 24px; }
+
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: -8px;
+    top: 6px;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: var(--saffron);
+    border: 3px solid white;
+    box-shadow: 0 0 0 2px var(--saffron);
+  }
+
+  .tl-phase {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--saffron);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+
+  .tl-item h4 { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+  .tl-item p { font-size: 13px; color: var(--text-mid); }
+
+  /* ===== MOBILE NAV MENU ===== */
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 62px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: white;
+    z-index: 999;
+    overflow-y: auto;
+    padding: 20px;
+  }
+
+  .mobile-menu.open { display: block; }
+
+  .mobile-nav-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .mobile-nav-links a {
+    display: block;
+    text-decoration: none;
+    color: var(--text-dark);
+    font-size: 18px;
+    font-weight: 500;
+    padding: 14px 16px;
+    border-radius: 12px;
+    border-bottom: 1px solid var(--border);
+    transition: all 0.2s;
+  }
+
+  .mobile-nav-links a:hover { background: var(--saffron-light); color: var(--saffron-dark); }
+
+  .mobile-lang {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+  }
+
+  .mobile-lang-btn {
+    flex: 1;
+    padding: 12px;
+    border-radius: 10px;
+    border: 2px solid var(--border);
+    background: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.2s;
+  }
+
+  .mobile-lang-btn.active {
+    background: var(--green);
+    color: white;
+    border-color: var(--green);
+  }
+
+  /* ===== NOTICE BANNER ===== */
+  .notice-bar {
+    background: var(--green-light);
+    border-left: 4px solid var(--green);
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: var(--radius);
+    margin-bottom: 24px;
+    font-size: 14px;
+    color: var(--green-dark);
+  }
+
+  .notice-bar span { font-weight: 600; }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .lang-toggle { display: none; }
+
+    .hero { padding: 40px 16px 60px; }
+    .hero-stats { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .stat-num { font-size: 20px; }
+
+    .about-grid { grid-template-columns: 1fr; }
+    .mv-grid { grid-template-columns: 1fr; }
+    .health-features { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .counters-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+
+    .form-grid { grid-template-columns: 1fr; }
+    .form-container { padding: 24px 16px; }
+    .skills-grid { grid-template-columns: 1fr; }
+
+    section { padding: 40px 16px; }
+
+    .chat-window {
+      right: 8px;
+      bottom: 88px;
+      width: calc(100vw - 16px);
+      height: 460px;
+    }
+
+    .agf-founder-card { grid-template-columns: 1fr; }
+    .agf-founder-visual { margin-bottom: 8px; }
+  }
+
+  @media (max-width: 480px) {
+    .hero h1 { font-size: 28px; }
+    .hero-ctas { flex-direction: column; align-items: center; }
+    .btn-primary, .btn-secondary { width: 100%; max-width: 300px; text-align: center; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .counters-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* ===== ANIMATIONS ===== */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fade-in 0.5s ease forwards;
+  }
+
+  @keyframes fade-in {
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body class="lang-hi">
+
+<!-- AGF Initiative Bar -->
+<div class="agf-initiative-bar">
+  <span class="hi">🌺 एक पहल: <a href="https://alkagaurfoundation.vercel.app/" target="_blank">अल्का गौर फाउंडेशन</a> द्वारा &nbsp;|&nbsp; संस्थापक: <strong>डॉ. अल्का गौर</strong> &nbsp;|&nbsp; 12A · 80G · NITI Aayog · CSR-1 पंजीकृत</span>
+  <span class="en">🌺 An Initiative by <a href="https://alkagaurfoundation.vercel.app/" target="_blank">Alka Gaur Foundation</a> &nbsp;|&nbsp; Founded by <strong>Dr. Alka Gaur</strong> &nbsp;|&nbsp; 12A · 80G · NITI Aayog · CSR-1 Registered</span>
+</div>
+
+<!-- Topbar -->
+<div class="topbar">
+  <span class="hi">🌸 सखी शक्ति – ग्रामीण महिला स्वास्थ्य एवं उद्यमिता नेटवर्क | Rajasthan, India</span>
+  <span class="en">🌸 Sakhi Shakti – Rural Women's Health & Entrepreneurship Network | Rajasthan, India</span>
+</div>
+
+<!-- Navbar -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo" onclick="showPage('home');return false;">
+      <div class="logo-icon">🌸</div>
+      <div class="logo-text">
+        <span class="brand">Sakhi Shakti</span>
+        <span class="tagline-small hi">महिला स्वास्थ्य नेटवर्क</span>
+        <span class="tagline-small en">Women's Health Network</span>
+        <span class="agf-sub">by Alka Gaur Foundation</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#" onclick="showPage('home');return false;" id="nav-home">
+        <span class="hi">होम</span><span class="en">Home</span></a></li>
+      <li><a href="#" onclick="showPage('about');return false;" id="nav-about">
+        <span class="hi">हमारे बारे में</span><span class="en">About Us</span></a></li>
+      <li><a href="#" onclick="showPage('health');return false;" id="nav-health">
+        <span class="hi">स्वास्थ्य सेवाएं</span><span class="en">Health Services</span></a></li>
+      <li><a href="#" onclick="showPage('programme');return false;" id="nav-prog">
+        <span class="hi">प्रशिक्षण</span><span class="en">Programme</span></a></li>
+      <li><a href="#" onclick="showPage('register');return false;" id="nav-reg">
+        <span class="hi">जुड़ें</span><span class="en">Join Us</span></a></li>
+      <li><a href="#" onclick="showPage('contact');return false;" id="nav-contact">
+        <span class="hi">संपर्क</span><span class="en">Contact</span></a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang-toggle">
+        <button class="lang-btn active" id="btn-hi" onclick="setLang('hi')">हिंदी</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">English</button>
+      </div>
+      <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobile-menu">
+  <ul class="mobile-nav-links">
+    <li><a href="#" onclick="showPage('home');closeMobileMenu();return false;">🏠 <span class="hi">होम</span><span class="en">Home</span></a></li>
+    <li><a href="#" onclick="showPage('about');closeMobileMenu();return false;">ℹ️ <span class="hi">हमारे बारे में</span><span class="en">About Us</span></a></li>
+    <li><a href="#" onclick="showPage('health');closeMobileMenu();return false;">🏥 <span class="hi">स्वास्थ्य सेवाएं</span><span class="en">Health Services</span></a></li>
+    <li><a href="#" onclick="showPage('programme');closeMobileMenu();return false;">📚 <span class="hi">प्रशिक्षण</span><span class="en">Programme</span></a></li>
+    <li><a href="#" onclick="showPage('register');closeMobileMenu();return false;">✍️ <span class="hi">जुड़ें</span><span class="en">Join Us</span></a></li>
+    <li><a href="#" onclick="showPage('contact');closeMobileMenu();return false;">📞 <span class="hi">संपर्क</span><span class="en">Contact</span></a></li>
+  </ul>
+  <div class="mobile-lang">
+    <button class="mobile-lang-btn active" id="mbtn-hi" onclick="setLang('hi')">हिंदी</button>
+    <button class="mobile-lang-btn" id="mbtn-en" onclick="setLang('en')">English</button>
+  </div>
+</div>
+
+<!-- ==================== PAGE: HOME ==================== -->
+<div id="page-home" class="page active">
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-pattern"></div>
+    <svg class="hero-mandala" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="100" cy="100" r="90" fill="none" stroke="#E8720C" stroke-width="1"/>
+      <circle cx="100" cy="100" r="70" fill="none" stroke="#E8720C" stroke-width="1"/>
+      <circle cx="100" cy="100" r="50" fill="none" stroke="#E8720C" stroke-width="1"/>
+      <circle cx="100" cy="100" r="30" fill="none" stroke="#E8720C" stroke-width="1"/>
+      <line x1="10" y1="100" x2="190" y2="100" stroke="#E8720C" stroke-width="0.5"/>
+      <line x1="100" y1="10" x2="100" y2="190" stroke="#E8720C" stroke-width="0.5"/>
+      <line x1="27" y1="27" x2="173" y2="173" stroke="#E8720C" stroke-width="0.5"/>
+      <line x1="173" y1="27" x2="27" y2="173" stroke="#E8720C" stroke-width="0.5"/>
+    </svg>
+    <div class="hero-content">
+      <div class="agf-hero-badge">
+        🌺 <span class="hi">अल्का गौर फाउंडेशन की पहल</span><span class="en">An Initiative by Alka Gaur Foundation</span>
+      </div>
+      <div class="hero-badge">
+        🌸 <span class="hi">ग्रामीण महिला सशक्तिकरण</span><span class="en">Rural Women Empowerment</span>
+      </div>
+      <h1>
+        <span class="hi">सखी शक्ति — <span class="highlight">हर घर में</span><br>स्वास्थ्य, हर हाथ में शक्ति</span>
+        <span class="en">Sakhi Shakti — <span class="highlight">Health in</span><br>Every Home, Strength in Every Hand</span>
+      </h1>
+      <p>
+        <span class="hi">गांव-गांव में महिलाओं को स्वास्थ्य दूत और डिजिटल उद्यमी बनाने का सपना। स्वास्थ्य जांच, पोषण जागरूकता और आजीविका — एक साथ।</span>
+        <span class="en">Transforming village women into health ambassadors and digital entrepreneurs. Health screening, nutrition awareness, and livelihoods — all together.</span>
+      </p>
+      <div class="hero-ctas">
+        <a href="#" class="btn-primary" onclick="showPage('register');return false;">
+          <span class="hi">✍️ अभी जुड़ें</span><span class="en">✍️ Join Now</span>
+        </a>
+        <a href="#" class="btn-secondary" onclick="showPage('about');return false;">
+          <span class="hi">और जानें →</span><span class="en">Learn More →</span>
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-card">
+          <span class="stat-num" id="cnt1">0</span>
+          <div class="stat-label hi">गांव</div>
+          <div class="stat-label en">Villages</div>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num" id="cnt2">0</span>
+          <div class="stat-label hi">महिला सखियाँ</div>
+          <div class="stat-label en">Women Sakhis</div>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num" id="cnt3">0</span>
+          <div class="stat-label hi">परिवार लाभान्वित</div>
+          <div class="stat-label en">Families Served</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Services Overview -->
+  <section>
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-label hi">हमारी सेवाएं</div>
+        <div class="section-label en">Our Services</div>
+        <h2 class="section-title hi">एक नेटवर्क, अनेक सेवाएं</h2>
+        <h2 class="section-title en">One Network, Many Services</h2>
+        <p class="section-sub hi">सखी शक्ति महिलाओं को स्वास्थ्य, शिक्षा और आजीविका में सक्षम बनाती है।</p>
+        <p class="section-sub en">Sakhi Shakti empowers women in health, education, and livelihoods.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon" style="background:#FFF0E0;">🩺</div>
+          <h3><span class="hi">निःशुल्क स्वास्थ्य जांच</span><span class="en">Free Health Screening</span></h3>
+          <p><span class="hi">BP, शुगर, वजन, हीमोग्लोबिन की जांच गांव में ही। कोई दूर जाने की जरूरत नहीं।</span><span class="en">BP, sugar, weight, haemoglobin checks right in your village. No need to travel far.</span></p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon" style="background:#E8F5EE;">🤱</div>
+          <h3><span class="hi">मातृ एवं शिशु स्वास्थ्य</span><span class="en">Mother & Child Health</span></h3>
+          <p><span class="hi">गर्भवती महिलाओं और नवजात शिशुओं की देखभाल। टीकाकरण ट्रैकिंग, पोषण मार्गदर्शन।</span><span class="en">Care for pregnant women and newborns. Vaccination tracking, nutrition guidance.</span></p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon" style="background:#FFF8E1;">📱</div>
+          <h3><span class="hi">डिजिटल उद्यमिता</span><span class="en">Digital Entrepreneurship</span></h3>
+          <p><span class="hi">महिलाओं को स्मार्टफोन, डिजिटल पेमेंट और ऑनलाइन बिक्री सिखाकर आजीविका दिलाना।</span><span class="en">Teaching women smartphones, digital payments, and online selling to earn livelihoods.</span></p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon" style="background:#FBE8F0;">🌿</div>
+          <h3><span class="hi">पोषण जागरूकता</span><span class="en">Nutrition Awareness</span></h3>
+          <p><span class="hi">सही खानपान, कुपोषण से बचाव, आयरन और फोलिक एसिड की जानकारी घर-घर पहुंचाना।</span><span class="en">Proper nutrition, preventing malnutrition, spreading iron and folic acid awareness door-to-door.</span></p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon" style="background:#EEF8F2;">🏥</div>
+          <h3><span class="hi">टेलीमेडिसिन</span><span class="en">Telemedicine</span></h3>
+          <p><span class="hi">डॉक्टर से वीडियो कॉल पर परामर्श। शहर के अस्पताल की सुविधा गांव में।</span><span class="en">Video consultation with doctors. City hospital facilities in the village.</span></p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon" style="background:#FFF0E0;">🛒</div>
+          <h3><span class="hi">स्वास्थ्य उत्पाद बिक्री</span><span class="en">Health Product Sales</span></h3>
+          <p><span class="hi">स्वास्थ्य और पोषण उत्पाद सीधे गांव में बेचकर महिलाओं को आय का अवसर।</span><span class="en">Earning opportunity for women by selling health and nutrition products directly in villages.</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Impact Counters -->
+  <div class="counters-section">
+    <div class="counters-grid">
+      <div class="counter-item">
+        <span class="num" data-target="150">0</span>
+        <div class="lbl hi">लक्ष्य गांव</div><div class="lbl en">Target Villages</div>
+      </div>
+      <div class="counter-item">
+        <span class="num" data-target="500">0</span>
+        <div class="lbl hi">सखी प्रशिक्षण</div><div class="lbl en">Sakhis Trained</div>
+      </div>
+      <div class="counter-item">
+        <span class="num" data-target="25000">0</span>
+        <div class="lbl hi">परिवार लाभार्थी</div><div class="lbl en">Families Benefited</div>
+      </div>
+      <div class="counter-item">
+        <span class="num" data-target="5">0</span>
+        <div class="lbl hi">जिले (लक्ष्य)</div><div class="lbl en">Target Districts</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AGF Section -->
+  <div class="agf-section">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-label" style="background:var(--gold-light); color:#7a5a00;">🌺 पहल प्रायोजक / Initiative By</div>
+        <h2 class="section-title hi">अल्का गौर फाउंडेशन एवं डॉ. अल्का गौर</h2>
+        <h2 class="section-title en">Alka Gaur Foundation & Dr. Alka Gaur</h2>
+        <p class="section-sub hi">राजस्थान में समुदायों का जीवन बदलने का संकल्प — शिक्षा, स्वास्थ्य, महिला सशक्तिकरण और खाद्य सुरक्षा के साथ।</p>
+        <p class="section-sub en">Committed to transforming lives across Rajasthan — through education, healthcare, women's empowerment, and food security.</p>
+      </div>
+
+      <!-- Founder Card -->
+      <div class="agf-founder-card">
+        <div class="agf-founder-visual">
+          <div class="agf-founder-avatar">👩‍⚕️</div>
+          <div class="agf-founder-name">Dr. Alka Gaur</div>
+          <div style="font-size:13px; color:var(--text-mid); margin-top:4px;" class="hi">संस्थापक एवं विज़नरी</div>
+          <div style="font-size:13px; color:var(--text-mid); margin-top:4px;" class="en">Founder & Visionary Leader</div>
+          <div class="agf-founder-tags">
+            <span class="agf-tag">⚕️ <span class="hi">चिकित्सक</span><span class="en">Medical Professional</span></span>
+            <span class="agf-tag">💼 <span class="hi">उद्यमी</span><span class="en">Entrepreneur</span></span>
+            <span class="agf-tag">🎨 <span class="hi">सांस्कृतिक संरक्षक</span><span class="en">Cultural Patron</span></span>
+          </div>
+          <div style="margin-top:14px; display:flex; flex-direction:column; gap:6px; align-items:center;">
+            <span style="font-size:11px; background:var(--green-light); color:var(--green-dark); padding:3px 10px; border-radius:100px; font-weight:600;">🏆 ISO Certified</span>
+            <span style="font-size:11px; background:var(--saffron-light); color:var(--saffron-dark); padding:3px 10px; border-radius:100px; font-weight:600;">🏛️ NITI Aayog Registered</span>
+            <span style="font-size:11px; background:var(--gold-light); color:#7a5a00; padding:3px 10px; border-radius:100px; font-weight:600;">📋 12A · 80G · CSR-1</span>
+          </div>
+        </div>
+        <div class="agf-founder-text">
+          <h3><span class="hi">करुणा से जन्मी एक विज़न</span><span class="en">A Vision Born from Compassion</span></h3>
+          <p>
+            <span class="hi">डॉ. अल्का गौर एक प्रतिष्ठित चिकित्सक, उद्यमी और कला-संस्कृति की संरक्षक हैं। जब उन्होंने 2020 में अल्का गौर फाउंडेशन की स्थापना की, तो उन्हें तीव्र संशयवाद का सामना करना पड़ा — लेकिन उनका संकल्प कभी नहीं डिगा। आज यह फाउंडेशन एक समग्र 'जीवनचक्र दृष्टिकोण' के साथ काम करती है, जो बच्चों से लेकर परिवारों तक, टिकाऊ और दीर्घकालिक बदलाव लाती है।</span>
+            <span class="en">Dr. Alka Gaur is a distinguished medical professional, entrepreneur, and passionate patron of arts and culture. When she founded the Alka Gaur Foundation in 2020, she faced profound skepticism — but her determination never wavered. Today, the foundation operates with a holistic lifecycle approach, supporting entire families for sustainable, long-term change.</span>
+          </p>
+          <p>
+            <span class="hi">वे <strong>जयपुर आर्टिस्ट फेस्टिवल</strong> और <strong>लोक कला संगम 2026</strong> की दूरदर्शी संस्थापक हैं — जिसे उपमुख्यमंत्री दिया कुमारी ने भी सम्मानित किया, महिला-नेतृत्व वाली सामाजिक नवाचार को राज्य समर्थन की पुष्टि करते हुए।</span>
+            <span class="en">She is the visionary behind the <strong>Jaipur Artist Festival</strong> and <strong>Lok Kala Sangam 2026</strong> — graced by Deputy CM Diya Kumari, affirming state support for women-led social innovation across Rajasthan.</span>
+          </p>
+          <div class="agf-quote">
+            <span class="hi">"किसी भी महिला को अपने आत्मसम्मान और गरिमा के साथ समझौता नहीं करने दिया जाना चाहिए। मिलकर हम फर्क कर सकते हैं — एक दिल, एक समुदाय, एक बार में।"</span>
+            <span class="en">"No woman should be allowed to compromise with her self-respect and dignity. Together, we can make a difference — one heart, one community at a time."</span>
+            <div style="font-weight:700; margin-top:8px; font-style:normal; font-size:13px; color:var(--text-dark);">— Dr. Alka Gaur</div>
+          </div>
+          <div class="agf-badges-row">
+            <span class="agf-badge-pill">🏛️ NITI Aayog</span>
+            <span class="agf-badge-pill">📋 12A & 80G</span>
+            <span class="agf-badge-pill">🤝 CSR-1</span>
+            <span class="agf-badge-pill">🏆 ISO Certified</span>
+            <span class="agf-badge-pill">📍 Jaipur, Rajasthan</span>
+            <span class="agf-badge-pill">📅 Est. 2020</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- AGF Pillars -->
+      <h3 style="font-family:'Playfair Display',serif; font-size:20px; text-align:center; margin-bottom:20px;">
+        <span class="hi">🏛️ AGF के छह स्तंभ</span><span class="en">🏛️ AGF's Six Impact Pillars</span>
+      </h3>
+      <div class="agf-pillars-grid">
+        <div class="agf-pillar">
+          <div class="pillar-icon">🍽️</div>
+          <h4><span class="hi">भोजन एवं पोषण</span><span class="en">Food & Nutrition</span></h4>
+          <p><span class="hi">10,000+ परिवारों को भोजन</span><span class="en">10,000+ families fed</span></p>
+        </div>
+        <div class="agf-pillar">
+          <div class="pillar-icon">📚</div>
+          <h4><span class="hi">शिक्षा</span><span class="en">Education</span></h4>
+          <p><span class="hi">500+ छात्रों को सहायता</span><span class="en">500+ students supported</span></p>
+        </div>
+        <div class="agf-pillar">
+          <div class="pillar-icon">🏥</div>
+          <h4><span class="hi">स्वास्थ्य एवं कल्याण</span><span class="en">Healthcare</span></h4>
+          <p><span class="hi">50+ मुफ्त स्वास्थ्य शिविर</span><span class="en">50+ free health camps</span></p>
+        </div>
+        <div class="agf-pillar">
+          <div class="pillar-icon">👩‍💼</div>
+          <h4><span class="hi">महिला सशक्तिकरण</span><span class="en">Women Empowerment</span></h4>
+          <p><span class="hi">300+ महिलाएं प्रशिक्षित</span><span class="en">300+ women trained</span></p>
+        </div>
+        <div class="agf-pillar">
+          <div class="pillar-icon">🌿</div>
+          <h4><span class="hi">पर्यावरण</span><span class="en">Environment</span></h4>
+          <p><span class="hi">वृक्षारोपण एवं जागरूकता</span><span class="en">Tree plantation & awareness</span></p>
+        </div>
+        <div class="agf-pillar">
+          <div class="pillar-icon">💜</div>
+          <h4><span class="hi">पुनर्वास एवं कैंसर देखभाल</span><span class="en">Rehabilitation & Cancer Care</span></h4>
+          <p><span class="hi">विशेष सहायता एवं देखभाल</span><span class="en">Specialized care & support</span></p>
+        </div>
+      </div>
+
+      <div style="text-align:center; margin-top:28px;">
+        <a href="https://alkagaurfoundation.vercel.app/" target="_blank" class="btn-secondary" style="display:inline-block;">
+          <span class="hi">🌐 AGF वेबसाइट देखें →</span><span class="en">🌐 Visit AGF Website →</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Testimonials -->
+  <section style="background:#f9f6f0;">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-label hi">सफलता की कहानियां</div>
+        <div class="section-label en">Success Stories</div>
+        <h2 class="section-title hi">हमारी सखियाँ कहती हैं</h2>
+        <h2 class="section-title en">Our Sakhis Say</h2>
+      </div>
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <p class="testimonial-text hi">"सखी शक्ति से जुड़ने के बाद मुझे अपनी पहचान मिली। अब मैं गांव की 80 महिलाओं की स्वास्थ्य देखभाल करती हूं और हर महीने ₹5000 कमाती हूं।"</p>
+          <p class="testimonial-text en">"After joining Sakhi Shakti, I found my identity. Now I care for 80 women in my village and earn ₹5000 every month."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">👩</div>
+            <div>
+              <div class="author-name">सुनीता देवी / Sunita Devi</div>
+              <div class="author-loc hi">बूंदी जिला, राजस्थान</div>
+              <div class="author-loc en">Bundi District, Rajasthan</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-text hi">"पहले बच्चों की जांच के लिए 20 किमी जाना पड़ता था। अब सखी खुद घर आती है। हमारे बच्चे स्वस्थ हैं।"</p>
+          <p class="testimonial-text en">"Earlier we had to travel 20km for children's checkups. Now Sakhi comes home herself. Our children are healthy."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">👩‍👦</div>
+            <div>
+              <div class="author-name">रमा बाई / Rama Bai</div>
+              <div class="author-loc hi">टोंक जिला, राजस्थान</div>
+              <div class="author-loc en">Tonk District, Rajasthan</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-text hi">"मोबाइल से पेमेंट करना सीखा। अब मैं UPI से उत्पाद बेचती हूं। पहले सोचती थी यह मेरे बस की बात नहीं — अब गर्व है।"</p>
+          <p class="testimonial-text en">"I learned to pay on mobile. Now I sell products through UPI. I used to think this wasn't for me — now I'm proud."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">👩‍💼</div>
+            <div>
+              <div class="author-name">कमला / Kamala</div>
+              <div class="author-loc hi">सवाई माधोपुर, राजस्थान</div>
+              <div class="author-loc en">Sawai Madhopur, Rajasthan</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section style="background: linear-gradient(135deg, var(--green-dark), var(--green)); color: white; padding: 40px 20px;">
+    <div style="max-width: 600px; margin: 0 auto; text-align: center;">
+      <h2 style="font-family:'Playfair Display',serif; font-size:28px; margin-bottom:12px; color:white;">
+        <span class="hi">क्या आप सखी बनना चाहती हैं?</span>
+        <span class="en">Do You Want to Become a Sakhi?</span>
+      </h2>
+      <p style="opacity:0.9; font-size:15px; margin-bottom:24px;">
+        <span class="hi">निःशुल्क प्रशिक्षण, प्रमाण पत्र और मासिक आय। आज ही आवेदन करें।</span>
+        <span class="en">Free training, certificate, and monthly income. Apply today.</span>
+      </p>
+      <a href="#" class="btn-primary" onclick="showPage('register');return false;" style="background:white; color:var(--green-dark);">
+        <span class="hi">✍️ अभी फॉर्म भरें</span><span class="en">✍️ Fill Form Now</span>
+      </a>
+    </div>
+  </section>
+
+</div>
+
+<!-- ==================== PAGE: ABOUT ==================== -->
+<div id="page-about" class="page">
+  <section>
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-label hi">हमारे बारे में</div>
+        <div class="section-label en">About Us</div>
+        <h2 class="section-title hi">सखी शक्ति की कहानी</h2>
+        <h2 class="section-title en">The Story of Sakhi Shakti</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-visual">
+          <span class="big-icon">🌺</span>
+          <h3><span class="hi">महिला सशक्तिकरण का प्रतीक</span><span class="en">Symbol of Women Empowerment</span></h3>
+          <p style="font-size:14px; color:var(--text-mid); margin-top:12px;">
+            <span class="hi">राजस्थान के ग्रामीण इलाकों में स्वास्थ्य और आजीविका का एकीकृत मॉडल।</span>
+            <span class="en">An integrated model of health and livelihood in rural Rajasthan.</span>
+          </p>
+          <div style="display:flex; gap:10px; justify-content:center; margin-top:20px; flex-wrap:wrap;">
+            <div style="background:white; border-radius:10px; padding:10px 16px; font-size:12px; font-weight:600; color:var(--saffron);">🏅 <span class="hi">SDG 3 स्वास्थ्य</span><span class="en">SDG 3 Health</span></div>
+            <div style="background:white; border-radius:10px; padding:10px 16px; font-size:12px; font-weight:600; color:var(--green);">🏅 <span class="hi">SDG 5 महिला</span><span class="en">SDG 5 Women</span></div>
+          </div>
+          <div style="margin-top:16px; background:rgba(255,255,255,0.8); border-radius:10px; padding:12px 14px; font-size:12px; color:var(--green-dark); font-weight:600; border:1px solid rgba(27,122,58,0.2);">
+            🌺 <span class="hi">अल्का गौर फाउंडेशन की पहल</span><span class="en">An initiative by Alka Gaur Foundation</span>
+          </div>
+        </div>
+        <div class="about-text">
+          <h2><span class="hi">हमारा उद्देश्य</span><span class="en">Our Purpose</span></h2>
+          <p>
+            <span class="hi">सखी शक्ति एक ऐसा सामाजिक उद्यम है जो ग्रामीण महिलाओं को सामुदायिक स्वास्थ्य दूत और डिजिटल उद्यमी के रूप में तैयार करता है। यह <strong>अल्का गौर फाउंडेशन</strong> की एक महत्वपूर्ण पहल है।</span>
+            <span class="en">Sakhi Shakti is a social enterprise that trains rural women as community health ambassadors and digital entrepreneurs — a flagship initiative of <strong>Alka Gaur Foundation</strong>.</span>
+          </p>
+          <p>
+            <span class="hi">हम मानते हैं कि हर महिला में असीम क्षमता है। सही प्रशिक्षण, उपकरण और समर्थन से वे अपने गांव की स्वास्थ्य व्यवस्था और अर्थव्यवस्था दोनों बदल सकती हैं।</span>
+            <span class="en">We believe every woman has unlimited potential. With the right training, tools, and support, they can transform both the health system and economy of their village.</span>
+          </p>
+          <p>
+            <span class="hi">हमारा मॉडल महिला सशक्तिकरण, निवारक स्वास्थ्य, ग्रामीण आजीविका, स्वास्थ्य डेटा और डिजिटल समावेश को एक साथ लाता है।</span>
+            <span class="en">Our model brings together women empowerment, preventive healthcare, rural livelihoods, health data, and digital inclusion.</span>
+          </p>
+          <div class="value-pills">
+            <span class="value-pill hi">🌸 महिला नेतृत्व</span><span class="value-pill en">🌸 Women-Led</span>
+            <span class="value-pill hi">🏥 निवारक स्वास्थ्य</span><span class="value-pill en">🏥 Preventive Health</span>
+            <span class="value-pill hi">📱 डिजिटल</span><span class="value-pill en">📱 Digital</span>
+            <span class="value-pill hi">🌾 ग्रामीण</span><span class="value-pill en">🌾 Rural</span>
+            <span class="value-pill hi">💰 आजीविका</span><span class="value-pill en">💰 Livelihood</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mission Vision -->
+      <div style="margin-top:40px;">
+        <div class="mv-grid">
+          <div class="mv-card mission">
+            <div class="card-icon">🎯</div>
+            <h3><span class="hi">हमारा मिशन</span><span class="en">Our Mission</span></h3>
+            <p><span class="hi">राजस्थान के प्रत्येक ग्रामीण परिवार तक निवारक स्वास्थ्य सेवाएं पहुंचाना और महिलाओं को आत्मनिर्भर उद्यमी बनाना।</span><span class="en">To reach every rural family in Rajasthan with preventive health services and make women self-reliant entrepreneurs.</span></p>
+          </div>
+          <div class="mv-card vision">
+            <div class="card-icon">🔭</div>
+            <h3><span class="hi">हमारी विजन</span><span class="en">Our Vision</span></h3>
+            <p><span class="hi">एक ऐसा भारत जहां ग्रामीण महिलाएं अपने समुदाय की स्वास्थ्य और आर्थिक नेता हों। 2030 तक 5000 गांव, 50,000 सखियां।</span><span class="en">An India where rural women are health and economic leaders of their community. By 2030: 5000 villages, 50,000 Sakhis.</span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SDG Alignment -->
+      <div style="margin-top:40px; background: white; border-radius: var(--radius-lg); padding: 28px; border: 1px solid var(--border);">
+        <h3 style="font-family:'Playfair Display',serif; font-size:20px; margin-bottom:16px; text-align:center;">
+          <span class="hi">🌍 SDG लक्ष्यों से जुड़ाव</span><span class="en">🌍 SDG Alignment</span>
+        </h3>
+        <div style="display:grid; grid-template-columns: repeat(auto-fit,minmax(140px,1fr)); gap:12px; text-align:center;">
+          <div style="background:var(--green-light); border-radius:10px; padding:14px 8px;">
+            <div style="font-size:24px; margin-bottom:6px;">❤️</div>
+            <div style="font-size:12px; font-weight:700; color:var(--green-dark);">SDG 3</div>
+            <div style="font-size:11px; color:var(--text-mid);"><span class="hi">अच्छा स्वास्थ्य</span><span class="en">Good Health</span></div>
+          </div>
+          <div style="background:var(--saffron-light); border-radius:10px; padding:14px 8px;">
+            <div style="font-size:24px; margin-bottom:6px;">👩</div>
+            <div style="font-size:12px; font-weight:700; color:var(--saffron-dark);">SDG 5</div>
+            <div style="font-size:11px; color:var(--text-mid);"><span class="hi">लैंगिक समानता</span><span class="en">Gender Equality</span></div>
+          </div>
+          <div style="background:#EEF; border-radius:10px; padding:14px 8px;">
+            <div style="font-size:24px; margin-bottom:6px;">💼</div>
+            <div style="font-size:12px; font-weight:700; color:#445;">SDG 8</div>
+            <div style="font-size:11px; color:var(--text-mid);"><span class="hi">आर्थिक विकास</span><span class="en">Economic Growth</span></div>
+          </div>
+          <div style="background:#FFF8E1; border-radius:10px; padding:14px 8px;">
+            <div style="font-size:24px; margin-bottom:6px;">📶</div>
+            <div style="font-size:12px; font-weight:700; color:#887000;">SDG 9</div>
+            <div style="font-size:11px; color:var(--text-mid);"><span class="hi">डिजिटल समावेश</span><span class="en">Digital Inclusion</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AGF about mini banner -->
+      <div style="margin-top:32px; background:linear-gradient(135deg,var(--gold-light),var(--green-light)); border-radius:var(--radius-lg); padding:28px 32px; border:2px solid var(--gold); display:flex; align-items:center; gap:24px; flex-wrap:wrap;">
+        <div style="font-size:52px;">🌺</div>
+        <div style="flex:1; min-width:200px;">
+          <h4 style="font-family:'Playfair Display',serif; font-size:18px; margin-bottom:6px; color:var(--text-dark);">
+            <span class="hi">अल्का गौर फाउंडेशन के बारे में</span><span class="en">About Alka Gaur Foundation</span>
+          </h4>
+          <p style="font-size:13px; color:var(--text-mid); margin-bottom:10px;">
+            <span class="hi">जयपुर स्थित एक ISO-प्रमाणित NGO जो 2020 से शिक्षा, स्वास्थ्य, महिला सशक्तिकरण, खाद्य सुरक्षा और पर्यावरण के क्षेत्र में काम कर रही है। 12A, 80G, NITI Aayog एवं CSR-1 पंजीकृत।</span>
+            <span class="en">A Jaipur-based ISO-certified NGO working since 2020 in education, healthcare, women's empowerment, food security, and environment. Registered: 12A, 80G, NITI Aayog, CSR-1.</span>
+          </p>
+          <a href="https://alkagaurfoundation.vercel.app/" target="_blank" style="font-size:13px; font-weight:600; color:var(--green-dark); text-decoration:none;">🌐 alkagaurfoundation.vercel.app →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ==================== PAGE: HEALTH ==================== -->
+<div id="page-health" class="page">
+  <section>
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-label hi">स्वास्थ्य सेवाएं</div>
+        <div class="section-label en">Health Services</div>
+        <h2 class="section-title hi">निवारक स्वास्थ्य देखभाल</h2>
+        <h2 class="section-title en">Preventive Healthcare</h2>
+        <p class="section-sub hi">गांव में ही मिलने वाली निःशुल्क और भरोसेमंद स्वास्थ्य सेवाएं</p>
+        <p class="section-sub en">Free and trusted health services available right in your village</p>
+      </div>
+
+      <div class="health-features">
+        <div class="health-card">
+          <h3>🩺 <span class="hi">स्वास्थ्य जांच</span><span class="en">Health Screening</span></h3>
+          <ul>
+            <li><span class="check">✓</span><span class="hi">रक्तचाप (BP) मापन</span><span class="en">Blood Pressure (BP) Measurement</span></li>
+            <li><span class="check">✓</span><span class="hi">शुगर जांच (Glucometer)</span><span class="en">Sugar Test (Glucometer)</span></li>
+            <li><span class="check">✓</span><span class="hi">हीमोग्लोबिन जांच</span><span class="en">Haemoglobin Test</span></li>
+            <li><span class="check">✓</span><span class="hi">वजन और BMI</span><span class="en">Weight and BMI</span></li>
+            <li><span class="check">✓</span><span class="hi">ऊंचाई और MUAC</span><span class="en">Height and MUAC</span></li>
+            <li><span class="check">✓</span><span class="hi">दृष्टि परीक्षण</span><span class="en">Vision Test</span></li>
+          </ul>
+        </div>
+        <div class="health-card">
+          <h3>🤱 <span class="hi">मातृ एवं शिशु स्वास्थ्य</span><span class="en">Mother & Child Health</span></h3>
+          <ul>
+            <li><span class="check">✓</span><span class="hi">प्रसव पूर्व देखभाल ट्रैकिंग</span><span class="en">Ante-Natal Care Tracking</span></li>
+            <li><span class="check">✓</span><span class="hi">टीकाकरण रिमाइंडर</span><span class="en">Vaccination Reminders</span></li>
+            <li><span class="check">✓</span><span class="hi">0-5 वर्ष बाल पोषण निगरानी</span><span class="en">0-5 Year Child Nutrition Monitoring</span></li>
+            <li><span class="check">✓</span><span class="hi">स्तनपान परामर्श</span><span class="en">Breastfeeding Counselling</span></li>
+            <li><span class="check">✓</span><span class="hi">कुपोषण पहचान</span><span class="en">Malnutrition Detection</span></li>
+            <li><span class="check">✓</span><span class="hi">परिवार नियोजन जागरूकता</span><span class="en">Family Planning Awareness</span></li>
+          </ul>
+        </div>
+        <div class="health-card">
+          <h3>🌿 <span class="hi">पोषण निगरानी</span><span class="en">Nutrition Monitoring</span></h3>
+          <ul>
+            <li><span class="check">✓</span><span class="hi">आयरन और फोलिक एसिड वितरण</span><span class="en">Iron and Folic Acid Distribution</span></li>
+            <li><span class="check">✓</span><span class="hi">पोषण सप्ताह आयोजन</span><span class="en">Nutrition Week Events</span></li>
+            <li><span class="check">✓</span><span class="hi">पोषण थाली प्रदर्शन</span><span class="en">Nutrition Thali Demonstrations</span></li>
+            <li><span class="check">✓</span><span class="hi">SAM/MAM बाल पहचान</span><span class="en">SAM/MAM Child Identification</span></li>
+            <li><span class="check">✓</span><span class="hi">रसोई वाटिका प्रोत्साहन</span><span class="en">Kitchen Garden Promotion</span></li>
+          </ul>
+        </div>
+        <div class="health-card">
+          <h3>🏥 <span class="hi">रेफरल और टेलीमेडिसिन</span><span class="en">Referral & Telemedicine</span></h3>
+          <ul>
+            <li><span class="check">✓</span><span class="hi">सरकारी अस्पताल रेफरल</span><span class="en">Government Hospital Referral</span></li>
+            <li><span class="check">✓</span><span class="hi">डॉक्टर वीडियो कॉल</span><span class="en">Doctor Video Call</span></li>
+            <li><span class="check">✓</span><span class="hi">PHC और CHC से जुड़ाव</span><span class="en">PHC and CHC Linkage</span></li>
+            <li><span class="check">✓</span><span class="hi">आयुष्मान भारत नामांकन</span><span class="en">Ayushman Bharat Enrollment</span></li>
+            <li><span class="check">✓</span><span class="hi">एम्बुलेंस समन्वय</span><span class="en">Ambulance Coordination</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Screening Flow -->
+      <div style="margin-top:48px;">
+        <h3 style="font-family:'Playfair Display',serif; font-size:22px; text-align:center; margin-bottom:32px;">
+          <span class="hi">स्वास्थ्य जांच प्रक्रिया</span><span class="en">Health Screening Process</span>
+        </h3>
+        <div class="screening-flow">
+          <div class="flow-step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <h4><span class="hi">पंजीकरण</span><span class="en">Registration</span></h4>
+              <p><span class="hi">सखी मोबाइल ऐप पर परिवार का पंजीकरण करती है। नाम, उम्र, पता दर्ज होता है।</span><span class="en">Sakhi registers the family on mobile app. Name, age, address recorded.</span></p>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="step-num">2</div>
+            <div class="step-content">
+              <h4><span class="hi">बेसिक जांच</span><span class="en">Basic Screening</span></h4>
+              <p><span class="hi">BP, शुगर, वजन, हीमोग्लोबिन मापा जाता है। डेटा ऐप में स्वतः सेव होता है।</span><span class="en">BP, sugar, weight, haemoglobin measured. Data auto-saved in app.</span></p>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="step-num">3</div>
+            <div class="step-content">
+              <h4><span class="hi">परामर्श</span><span class="en">Counselling</span></h4>
+              <p><span class="hi">ऐप स्वतः सुझाव देता है। सखी सरल भाषा में समझाती है। हिंदी ऑडियो गाइड।</span><span class="en">App auto-suggests recommendations. Sakhi explains in simple language. Hindi audio guide.</span></p>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="step-num">4</div>
+            <div class="step-content">
+              <h4><span class="hi">रेफरल / उपचार</span><span class="en">Referral / Treatment</span></h4>
+              <p><span class="hi">जरूरत होने पर तुरंत डॉक्टर से जोड़ा जाता है या PHC रेफर किया जाता है।</span><span class="en">When needed, immediately connected to doctor or referred to PHC.</span></p>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="step-num">5</div>
+            <div class="step-content">
+              <h4><span class="hi">फॉलो-अप</span><span class="en">Follow-Up</span></h4>
+              <p><span class="hi">अगले महीने पुनः जांच। स्वास्थ्य प्रगति ट्रैक होती है। परिवार को SMS रिमाइंडर।</span><span class="en">Re-screening next month. Health progress tracked. SMS reminders to family.</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ==================== PAGE: PROGRAMME ==================== -->
+<div id="page-programme" class="page">
+  <section>
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-label hi">प्रशिक्षण कार्यक्रम</div>
+        <div class="section-label en">Training Programme</div>
+        <h2 class="section-title hi">सखी प्रशिक्षण — 30 दिन में बदलाव</h2>
+        <h2 class="section-title en">Sakhi Training — Transform in 30 Days</h2>
+        <p class="section-sub hi">निःशुल्क, सर्टिफाइड, और रोजगार से जुड़ा प्रशिक्षण</p>
+        <p class="section-sub en">Free, certified, and employment-linked training</p>
+      </div>
+
+      <div class="notice-bar">
+        <span>📢</span>
+        <div>
+          <span><span class="hi">अगला बैच:</span><span class="en">Next Batch:</span></span>
+          <span class="hi"> जुलाई 2025 • स्थान: जिला स्वास्थ्य केंद्र, बूंदी</span>
+          <span class="en"> July 2025 • Venue: District Health Centre, Bundi</span>
+        </div>
+      </div>
+
+      <!-- Programme Steps -->
+      <div class="programme-steps">
+        <div class="prog-step">
+          <div class="prog-num">1</div>
+          <h3><span class="hi">स्वास्थ्य प्रशिक्षण</span><span class="en">Health Training</span></h3>
+          <p><span class="hi">10 दिन • BP, शुगर, पोषण, मातृ स्वास्थ्य की व्यावहारिक जांच सीखना।</span><span class="en">10 days • Practical screening of BP, sugar, nutrition, maternal health.</span></p>
+        </div>
+        <div class="prog-step">
+          <div class="prog-num">2</div>
+          <h3><span class="hi">डिजिटल साक्षरता</span><span class="en">Digital Literacy</span></h3>
+          <p><span class="hi">7 दिन • स्मार्टफोन, UPI, WhatsApp, ऐप उपयोग की बुनियादी शिक्षा।</span><span class="en">7 days • Basics of smartphone, UPI, WhatsApp, app usage.</span></p>
+        </div>
+        <div class="prog-step">
+          <div class="prog-num">3</div>
+          <h3><span class="hi">बिक्री और संचार</span><span class="en">Sales & Communication</span></h3>
+          <p><span class="hi">7 दिन • उत्पाद बिक्री, ग्राहक संवाद, रिकॉर्ड-रखना सीखना।</span><span class="en">7 days • Product selling, customer communication, record-keeping.</span></p>
+        </div>
+        <div class="prog-step">
+          <div class="prog-num">4</div>
+          <h3><span class="hi">फील्ड प्रैक्टिस</span><span class="en">Field Practice</span></h3>
+          <p><span class="hi">6 दिन • गांव में जाकर असल जांच और बिक्री का अनुभव।</span><span class="en">6 days • Real village experience of actual screening and selling.</span></p>
+        </div>
+      </div>
+
+      <!-- Timeline -->
+      <div style="margin-top:48px;">
+        <h3 style="font-family:'Playfair Display',serif; font-size:22px; text-align:center; margin-bottom:32px;">
+          <span class="hi">📅 विस्तार रोडमैप</span><span class="en">📅 Expansion Roadmap</span>
+        </h3>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-phase"><span class="hi">चरण 1 • जनवरी–मार्च 2025</span><span class="en">Phase 1 • Jan–Mar 2025</span></div>
+            <h4><span class="hi">पायलट लॉन्च</span><span class="en">Pilot Launch</span></h4>
+            <p><span class="hi">5 गांव, 25 सखियां, बूंदी जिला, राजस्थान। मॉडल परीक्षण और सीख।</span><span class="en">5 villages, 25 Sakhis, Bundi district, Rajasthan. Model testing and learning.</span></p>
+          </div>
+          <div class="tl-item">
+            <div class="tl-phase"><span class="hi">चरण 2 • अप्रैल–सितंबर 2025</span><span class="en">Phase 2 • Apr–Sep 2025</span></div>
+            <h4><span class="hi">जिला विस्तार</span><span class="en">District Expansion</span></h4>
+            <p><span class="hi">50 गांव, 250 सखियां, 3 जिले। CSR और सरकारी साझेदारी। ऐप लॉन्च।</span><span class="en">50 villages, 250 Sakhis, 3 districts. CSR and government partnership. App launch.</span></p>
+          </div>
+          <div class="tl-item">
+            <div class="tl-phase"><span class="hi">चरण 3 • 2026</span><span class="en">Phase 3 • 2026</span></div>
+            <h4><span class="hi">राज्य स्तर</span><span class="en">State Level</span></h4>
+            <p><span class="hi">500 गांव, 2500 सखियां, 10 जिले। टेलीमेडिसिन, e-pharmacy एकीकरण।</span><span class="en">500 villages, 2500 Sakhis, 10 districts. Telemedicine, e-pharmacy integration.</span></p>
+          </div>
+          <div class="tl-item">
+            <div class="tl-phase"><span class="hi">चरण 4 • 2027–2030</span><span class="en">Phase 4 • 2027–2030</span></div>
+            <h4><span class="hi">राष्ट्रीय मंच</span><span class="en">National Platform</span></h4>
+            <p><span class="hi">5000+ गांव, 50,000+ सखियां। अन्य राज्यों में विस्तार। AI स्वास्थ्य विश्लेषण।</span><span class="en">5000+ villages, 50,000+ Sakhis. Expansion to other states. AI health analytics.</span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Incentive Table -->
+      <div style="margin-top:40px; background:white; border-radius:var(--radius-lg); padding:28px; border:1px solid var(--border);">
+        <h3 style="font-family:'Playfair Display',serif; font-size:20px; margin-bottom:20px; text-align:center;">
+          <span class="hi">💰 सखी आय मॉडल</span><span class="en">💰 Sakhi Income Model</span>
+        </h3>
+        <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; text-align:center;">
+          <div style="background:var(--saffron-light); border-radius:12px; padding:20px 12px;">
+            <div style="font-size:24px; margin-bottom:6px;">📋</div>
+            <div style="font-size:22px; font-weight:700; color:var(--saffron-dark);">₹2,000</div>
+            <div style="font-size:12px; color:var(--text-mid); margin-top:4px;"><span class="hi">मासिक निश्चित स्टाइपेंड</span><span class="en">Monthly Fixed Stipend</span></div>
+          </div>
+          <div style="background:var(--green-light); border-radius:12px; padding:20px 12px;">
+            <div style="font-size:24px; margin-bottom:6px;">🛒</div>
+            <div style="font-size:22px; font-weight:700; color:var(--green-dark);">₹1,500+</div>
+            <div style="font-size:12px; color:var(--text-mid); margin-top:4px;"><span class="hi">बिक्री कमीशन</span><span class="en">Sales Commission</span></div>
+          </div>
+          <div style="background:var(--gold-light); border-radius:12px; padding:20px 12px;">
+            <div style="font-size:24px; margin-bottom:6px;">⭐</div>
+            <div style="font-size:22px; font-weight:700; color:var(--gold);">₹500+</div>
+            <div style="font-size:12px; color:var(--text-mid); margin-top:4px;"><span class="hi">प्रदर्शन बोनस</span><span class="en">Performance Bonus</span></div>
+          </div>
+        </div>
+        <p style="text-align:center; font-size:13px; color:var(--text-mid); margin-top:16px;">
+          <span class="hi">कुल संभावित मासिक आय: <strong>₹4,000 – ₹8,000</strong></span>
+          <span class="en">Total potential monthly income: <strong>₹4,000 – ₹8,000</strong></span>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ==================== PAGE: REGISTER ==================== -->
+<div id="page-register" class="page">
+  <section>
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-label hi">जुड़ें</div>
+        <div class="section-label en">Join Us</div>
+        <h2 class="section-title hi">सखी बनने के लिए फॉर्म भरें</h2>
+        <h2 class="section-title en">Fill the Form to Become a Sakhi</h2>
+        <p class="section-sub hi">निःशुल्क प्रशिक्षण। प्रमाण पत्र। मासिक आय। आपकी अपनी पहचान।</p>
+        <p class="section-sub en">Free training. Certificate. Monthly income. Your own identity.</p>
+      </div>
+
+      <div class="form-container">
+        <div id="form-content">
+          <p class="form-title hi">📋 आवेदन फॉर्म</p>
+          <p class="form-title en">📋 Application Form</p>
+          <p class="form-subtitle hi">सभी जानकारी सही-सही भरें। * अनिवार्य है।</p>
+          <p class="form-subtitle en">Fill all information correctly. * is mandatory.</p>
+
+          <div class="form-grid">
+            <div class="form-group full">
+              <label><span class="hi">* पूरा नाम</span><span class="en">* Full Name</span></label>
+              <input type="text" id="f-name" />
+              <span id="err-name" style="font-size:12px; color:red; display:none;">
+                <span class="hi">कृपया नाम दर्ज करें</span><span class="en">Please enter name</span>
+              </span>
+            </div>
+            <div class="form-group">
+              <label><span class="hi">* आयु</span><span class="en">* Age</span></label>
+              <input type="number" id="f-age" min="18" max="60" placeholder="18-60" />
+            </div>
+            <div class="form-group">
+              <label><span class="hi">* लिंग</span><span class="en">* Gender</span></label>
+              <select id="f-gender">
+                <option value=""><span class="hi">चुनें</span><span class="en">Select</span></option>
+                <option value="female">महिला / Female</option>
+                <option value="male">पुरुष / Male</option>
+                <option value="other">अन्य / Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label><span class="hi">* जाति वर्ग</span><span class="en">* Caste Category</span></label>
+              <select id="f-caste">
+                <option value="">Select / चुनें</option>
+                <option value="general">General / सामान्य</option>
+                <option value="obc">OBC / अन्य पिछड़ा वर्ग</option>
+                <option value="sc">SC / अनुसूचित जाति</option>
+                <option value="st">ST / अनुसूचित जनजाति</option>
+                <option value="ews">EWS / आर्थिक रूप से कमजोर</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label><span class="hi">* राज्य</span><span class="en">* State</span></label>
+              <select id="f-state">
+                <option value="">Select / चुनें</option>
+                <option>Rajasthan / राजस्थान</option>
+                <option>Uttar Pradesh / उत्तर प्रदेश</option>
+                <option>Madhya Pradesh / मध्य प्रदेश</option>
+                <option>Bihar / बिहार</option>
+                <option>Jharkhand / झारखंड</option>
+                <option>Odisha / ओडिशा</option>
+                <option>Other / अन्य</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label><span class="hi">* जिला</span><span class="en">* District</span></label>
+              <input type="text" id="f-district" />
+            </div>
+            <div class="form-group full">
+              <label><span class="hi">* निवास स्थान (गांव/कस्बा)</span><span class="en">* Place of Residence (Village/Town)</span></label>
+              <input type="text" id="f-village" />
+            </div>
+            <div class="form-group">
+              <label><span class="hi">* मोबाइल नंबर</span><span class="en">* Mobile Number</span></label>
+              <input type="tel" id="f-phone" maxlength="10" />
+            </div>
+            <div class="form-group">
+              <label><span class="hi">शिक्षा</span><span class="en">Education</span></label>
+              <select id="f-edu">
+                <option value="">Select / चुनें</option>
+                <option>अशिक्षित / Illiterate</option>
+                <option>प्राथमिक / Primary (1-5)</option>
+                <option>माध्यमिक / Middle (6-10)</option>
+                <option>10वीं पास / 10th Pass</option>
+                <option>12वीं पास / 12th Pass</option>
+                <option>स्नातक / Graduate</option>
+              </select>
+            </div>
+            <div class="form-group full">
+              <label><span class="hi">* आप कौन सा कौशल सीखना चाहती/चाहते हैं?</span><span class="en">* Which skill do you want to acquire?</span></label>
+              <div class="skills-grid" id="skills-grid">
+                <label class="skill-checkbox" onclick="toggleSkill(this)">
+                  <input type="checkbox" value="health_screening"> <span class="hi">🩺 स्वास्थ्य जांच</span><span class="en">🩺 Health Screening</span>
+                </label>
+                <label class="skill-checkbox" onclick="toggleSkill(this)">
+                  <input type="checkbox" value="maternal_health"> <span class="hi">🤱 मातृ-शिशु स्वास्थ्य</span><span class="en">🤱 Maternal-Child Health</span>
+                </label>
+                <label class="skill-checkbox" onclick="toggleSkill(this)">
+                  <input type="checkbox" value="digital_literacy"> <span class="hi">📱 डिजिटल साक्षरता</span><span class="en">📱 Digital Literacy</span>
+                </label>
+                <label class="skill-checkbox" onclick="toggleSkill(this)">
+                  <input type="checkbox" value="nutrition"> <span class="hi">🌿 पोषण शिक्षा</span><span class="en">🌿 Nutrition Education</span>
+                </label>
+                <label class="skill-checkbox" onclick="toggleSkill(this)">
+                  <input type="checkbox" value="sales"> <span class="hi">🛒 उत्पाद बिक्री</span><span class="en">🛒 Product Sales</span>
+                </label>
+                <label class="skill-checkbox" onclick="toggleSkill(this)">
+                  <input type="checkbox" value="telemedicine"> <span class="hi">🏥 टेलीमेडिसिन</span><span class="en">🏥 Telemedicine</span>
+                </label>
+                <label class="skill-checkbox" onclick="toggleSkill(this)">
+                  <input type="checkbox" value="data_entry"> <span class="hi">📊 डेटा एंट्री</span><span class="en">📊 Data Entry</span>
+                </label>
+                <label class="skill-checkbox" onclick="toggleSkill(this)">
+                  <input type="checkbox" value="leadership"> <span class="hi">👑 नेतृत्व क्षमता</span><span class="en">👑 Leadership Skills</span>
+                </label>
+              </div>
+            </div>
+            <div class="form-group full">
+              <label><span class="hi">अपनी बात कहें (वैकल्पिक)</span><span class="en">Your Message (Optional)</span></label>
+              <textarea id="f-msg"></textarea>
+            </div>
+          </div>
+
+          <button class="submit-btn" onclick="submitForm()">
+            <span class="hi">✅ फॉर्म जमा करें</span><span class="en">✅ Submit Form</span>
+          </button>
+        </div>
+
+        <div class="success-msg" id="success-msg">
+          <span class="success-icon">🎉</span>
+          <h3><span class="hi">बधाई हो! आपका फॉर्म मिल गया।</span><span class="en">Congratulations! Your form received.</span></h3>
+          <p><span class="hi">हमारी टीम जल्द ही आपसे संपर्क करेगी। अगला बैच: जुलाई 2025</span><span class="en">Our team will contact you soon. Next batch: July 2025</span></p>
+          <button onclick="resetForm()" style="margin-top:20px; padding:10px 24px; background:var(--saffron); color:white; border:none; border-radius:8px; cursor:pointer; font-family:inherit; font-size:14px; font-weight:600;">
+            <span class="hi">← वापस जाएं</span><span class="en">← Go Back</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ==================== PAGE: CONTACT ==================== -->
+<div id="page-contact" class="page">
+  <section>
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-label hi">संपर्क करें</div>
+        <div class="section-label en">Contact Us</div>
+        <h2 class="section-title hi">हमसे बात करें</h2>
+        <h2 class="section-title en">Talk to Us</h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3><span class="hi">संपर्क जानकारी</span><span class="en">Contact Information</span></h3>
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div>
+              <h4><span class="hi">पता</span><span class="en">Address</span></h4>
+              <p>Sakhi Shakti Foundation<br>Bundi District, Rajasthan – 323001</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📞</div>
+            <div>
+              <h4><span class="hi">फ़ोन</span><span class="en">Phone</span></h4>
+              <p>+91 98765 43210<br>
+              <span class="hi">सोमवार–शनिवार, सुबह 9 – शाम 6</span><span class="en">Mon–Sat, 9 AM – 6 PM</span></p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📧</div>
+            <div>
+              <h4>Email</h4>
+              <p>hello@sakhishakti.org</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">🌐</div>
+            <div>
+              <h4>WhatsApp</h4>
+              <p>+91 98765 43210</p>
+            </div>
+          </div>
+
+          <div style="background: var(--green-light); border-radius:var(--radius); padding:20px; margin-top:24px; border: 1px solid rgba(27,122,58,0.15);">
+            <h4 style="font-size:14px; font-weight:700; color:var(--green-dark); margin-bottom:8px;">
+              <span class="hi">🤝 साझेदारी के लिए</span><span class="en">🤝 For Partnership</span>
+            </h4>
+            <p style="font-size:13px; color:var(--text-mid);">
+              <span class="hi">CSR, NGO, या सरकारी साझेदारी के लिए संपर्क करें:</span>
+              <span class="en">For CSR, NGO, or government partnership:</span>
+            </p>
+            <p style="font-size:13px; font-weight:600; color:var(--green-dark); margin-top:4px;">partner@sakhishakti.org</p>
+          </div>
+
+          <!-- AGF contact block -->
+          <div style="background:var(--gold-light); border-radius:var(--radius); padding:20px; margin-top:16px; border:1px solid rgba(212,160,23,0.3);">
+            <h4 style="font-size:14px; font-weight:700; color:#7a5a00; margin-bottom:8px;">🌺 Alka Gaur Foundation</h4>
+            <p style="font-size:12px; color:var(--text-mid); margin-bottom:6px;">Plot B-136, Kirti Nagar, Tonk Road<br>Jaipur, Rajasthan – 302015</p>
+            <p style="font-size:12px; color:var(--text-mid);">📞 +91 94689 27349 / +91 99283 88849</p>
+            <p style="font-size:12px; color:var(--text-mid);">📧 alkagaurfoundation@gmail.com</p>
+            <a href="https://alkagaurfoundation.vercel.app/" target="_blank" style="font-size:12px; font-weight:600; color:#7a5a00; text-decoration:none; display:block; margin-top:6px;">🌐 alkagaurfoundation.vercel.app →</a>
+          </div>
+        </div>
+
+        <div class="contact-form-wrap">
+          <h3 style="font-family:'Playfair Display',serif; font-size:20px; margin-bottom:20px;">
+            <span class="hi">✉️ संदेश भेजें</span><span class="en">✉️ Send Message</span>
+          </h3>
+          <div id="contact-form">
+            <div class="form-group" style="margin-bottom:16px;">
+              <label><span class="hi">नाम</span><span class="en">Name</span></label>
+              <input type="text" id="c-name" />
+            </div>
+            <div class="form-group" style="margin-bottom:16px;">
+              <label><span class="hi">मोबाइल / Email</span><span class="en">Mobile / Email</span></label>
+              <input type="text" id="c-email" />
+            </div>
+            <div class="form-group" style="margin-bottom:16px;">
+              <label><span class="hi">विषय</span><span class="en">Subject</span></label>
+              <select id="c-subject">
+                <option>सखी बनना है / Want to become Sakhi</option>
+                <option>स्वास्थ्य जानकारी / Health information</option>
+                <option>CSR / साझेदारी / Partnership</option>
+                <option>अन्य / Other</option>
+              </select>
+            </div>
+            <div class="form-group" style="margin-bottom:16px;">
+              <label><span class="hi">संदेश</span><span class="en">Message</span></label>
+              <textarea id="c-msg" rows="4"></textarea>
+            </div>
+            <button class="submit-btn" onclick="submitContact()">
+              <span class="hi">📤 भेजें</span><span class="en">📤 Send</span>
+            </button>
+          </div>
+          <div id="contact-success" style="display:none; text-align:center; padding:32px;">
+            <div style="font-size:48px; margin-bottom:12px;">✅</div>
+            <h3 style="font-family:'Playfair Display',serif;"><span class="hi">संदेश भेज दिया गया!</span><span class="en">Message Sent!</span></h3>
+            <p style="color:var(--text-mid); font-size:14px; margin-top:8px;"><span class="hi">हम 24 घंटे में जवाब देंगे।</span><span class="en">We will reply within 24 hours.</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ==================== FOOTER ==================== -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">
+          <div class="logo-icon">🌸</div>
+          <div class="logo-text">
+            <span class="brand">Sakhi Shakti</span>
+            <span class="tagline-small hi">महिला स्वास्थ्य नेटवर्क</span>
+            <span class="tagline-small en">Women's Health Network</span>
+            <span class="agf-sub">by Alka Gaur Foundation</span>
+          </div>
+        </div>
+        <p><span class="hi">ग्रामीण महिलाओं को स्वास्थ्य दूत और डिजिटल उद्यमी बनाने का राष्ट्रीय मिशन। <strong style="color:var(--gold);">अल्का गौर फाउंडेशन</strong> की एक पहल।</span><span class="en">National mission to transform rural women into health ambassadors and digital entrepreneurs. An initiative of <strong style="color:var(--gold);">Alka Gaur Foundation</strong>.</span></p>
+        <div class="sdg-badges">
+          <span class="sdg-badge">SDG 3</span>
+          <span class="sdg-badge">SDG 5</span>
+          <span class="sdg-badge">SDG 8</span>
+          <span class="sdg-badge">SDG 9</span>
+        </div>
+        <div style="margin-top:12px; display:flex; flex-wrap:wrap; gap:6px;">
+          <span style="font-size:10px; background:rgba(212,160,23,0.2); border:1px solid rgba(212,160,23,0.4); padding:3px 8px; border-radius:6px; color:var(--gold);">12A & 80G</span>
+          <span style="font-size:10px; background:rgba(212,160,23,0.2); border:1px solid rgba(212,160,23,0.4); padding:3px 8px; border-radius:6px; color:var(--gold);">NITI Aayog</span>
+          <span style="font-size:10px; background:rgba(212,160,23,0.2); border:1px solid rgba(212,160,23,0.4); padding:3px 8px; border-radius:6px; color:var(--gold);">CSR-1</span>
+          <span style="font-size:10px; background:rgba(212,160,23,0.2); border:1px solid rgba(212,160,23,0.4); padding:3px 8px; border-radius:6px; color:var(--gold);">ISO Certified</span>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4><span class="hi">पेज</span><span class="en">Pages</span></h4>
+        <a onclick="showPage('home')"><span class="hi">होम</span><span class="en">Home</span></a>
+        <a onclick="showPage('about')"><span class="hi">हमारे बारे में</span><span class="en">About</span></a>
+        <a onclick="showPage('health')"><span class="hi">स्वास्थ्य</span><span class="en">Health</span></a>
+        <a onclick="showPage('programme')"><span class="hi">प्रशिक्षण</span><span class="en">Programme</span></a>
+      </div>
+      <div class="footer-col">
+        <h4><span class="hi">जुड़ें</span><span class="en">Join</span></h4>
+        <a onclick="showPage('register')"><span class="hi">सखी बनें</span><span class="en">Become Sakhi</span></a>
+        <a onclick="showPage('contact')"><span class="hi">संपर्क</span><span class="en">Contact</span></a>
+        <a onclick="openChat()"><span class="hi">AI सहायक</span><span class="en">AI Assistant</span></a>
+      </div>
+      <div class="footer-col">
+        <h4>🌺 Alka Gaur Foundation</h4>
+        <a href="https://alkagaurfoundation.vercel.app/" target="_blank"><span class="hi">AGF वेबसाइट</span><span class="en">AGF Website</span></a>
+        <a href="https://alkagaurfoundation.vercel.app/#about" target="_blank"><span class="hi">डॉ. अल्का गौर</span><span class="en">Dr. Alka Gaur</span></a>
+        <a href="https://alkagaurfoundation.vercel.app/#csr" target="_blank">CSR Partnership</a>
+        <a href="mailto:alkagaurfoundation@gmail.com">alkagaurfoundation@gmail.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Sakhi Shakti · <a href="https://alkagaurfoundation.vercel.app/" target="_blank">Alka Gaur Foundation</a>. <span class="hi">सभी अधिकार सुरक्षित।</span><span class="en">All rights reserved.</span></span>
+      <span style="opacity:0.5; font-size:11px;">
+        <span class="hi">बनाया गया ❤️ से राजस्थान में</span>
+        <span class="en">Made with ❤️ in Rajasthan</span>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<!-- ==================== CHATBOT ==================== -->
+<button class="chat-fab" id="chat-fab" onclick="openChat()" title="AI Sakhi Sahayak">
+  💬
+</button>
+
+<div class="chat-window" id="chat-window">
+  <div class="chat-header">
+    <div class="chat-avatar">🌸</div>
+    <div class="chat-info">
+      <div class="chat-name">Sakhi AI Sahayak</div>
+      <div class="chat-status" id="chat-status-text">● Online</div>
+    </div>
+    <button class="chat-close" onclick="closeChat()">✕</button>
+  </div>
+  <div class="chat-lang-bar">
+    <button class="chat-lang-opt active" id="cl-hi" onclick="setChatLang('hi')">हिंदी</button>
+    <button class="chat-lang-opt" id="cl-en" onclick="setChatLang('en')">English</button>
+  </div>
+  <div class="chat-messages" id="chat-messages"></div>
+  <div class="chat-quick-replies" id="quick-replies"></div>
+  <div class="chat-input-row">
+    <input class="chat-input" id="chat-input" placeholder="यहाँ लिखें..." onkeydown="if(event.key==='Enter')sendChat()" />
+    <button class="chat-send" onclick="sendChat()">➤</button>
+  </div>
+</div>
+
+<script>
+// ===== LANGUAGE =====
+let currentLang = 'hi';
+function setLang(lang) {
+  currentLang = lang;
+  document.body.className = 'lang-' + lang;
+  document.getElementById('btn-hi').className = 'lang-btn' + (lang==='hi'?' active':'');
+  document.getElementById('btn-en').className = 'lang-btn' + (lang==='en'?' active':'');
+  document.getElementById('mbtn-hi').className = 'mobile-lang-btn' + (lang==='hi'?' active':'');
+  document.getElementById('mbtn-en').className = 'mobile-lang-btn' + (lang==='en'?' active':'');
+  document.getElementById('chat-input').placeholder = lang==='hi' ? 'यहाँ लिखें...' : 'Type here...';
+  document.documentElement.lang = lang;
+  updateQuickReplies();
+}
+
+// ===== PAGES =====
+function showPage(name) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-'+name).classList.add('active');
+  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+  const navEl = document.getElementById('nav-'+name);
+  if(navEl) navEl.classList.add('active');
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+// ===== MOBILE MENU =====
+function toggleMobileMenu() {
+  document.getElementById('mobile-menu').classList.toggle('open');
+}
+function closeMobileMenu() {
+  document.getElementById('mobile-menu').classList.remove('open');
+}
+
+// ===== COUNTERS =====
+function animateCounters() {
+  const items = document.querySelectorAll('[data-target]');
+  items.forEach(item => {
+    const target = parseInt(item.dataset.target);
+    let current = 0;
+    const increment = Math.ceil(target / 50);
+    const timer = setInterval(() => {
+      current = Math.min(current + increment, target);
+      item.textContent = current >= 1000 ? (current/1000).toFixed(0)+'K+' : current+'+';
+      if(current >= target) clearInterval(timer);
+    }, 30);
+  });
+}
+
+function animateHeroCounters() {
+  const targets = [150, 500, 25000];
+  const ids = ['cnt1','cnt2','cnt3'];
+  ids.forEach((id, i) => {
+    const el = document.getElementById(id);
+    const target = targets[i];
+    let c = 0;
+    const inc = Math.ceil(target/40);
+    const t = setInterval(() => {
+      c = Math.min(c+inc, target);
+      el.textContent = c >= 1000 ? (c/1000).toFixed(0)+'K+' : c+'+';
+      if(c >= target) clearInterval(t);
+    }, 40);
+  });
+}
+
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting) { animateCounters(); obs.disconnect(); }
+  });
+},{threshold:0.5});
+const counterSection = document.querySelector('.counters-section');
+if(counterSection) obs.observe(counterSection);
+setTimeout(animateHeroCounters, 500);
+
+// ===== FORM =====
+function toggleSkill(label) {
+  label.classList.toggle('selected');
+  label.querySelector('input').checked = label.classList.contains('selected');
+}
+
+function submitForm() {
+  const name = document.getElementById('f-name').value.trim();
+  const age = document.getElementById('f-age').value;
+  const phone = document.getElementById('f-phone').value.trim();
+  const village = document.getElementById('f-village').value.trim();
+  const gender = document.getElementById('f-gender').value;
+  const caste = document.getElementById('f-caste').value;
+  let valid = true;
+  if(!name){ document.getElementById('err-name').style.display='block'; valid=false; }
+  else { document.getElementById('err-name').style.display='none'; }
+  if(!age || !phone || !village || !gender || !caste) {
+    valid = false;
+    alert(currentLang === 'hi' ? 'कृपया सभी अनिवार्य जानकारी भरें।' : 'Please fill all required fields.');
+  }
+  if(!valid) return;
+  document.getElementById('form-content').style.display='none';
+  document.getElementById('success-msg').style.display='block';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function resetForm() {
+  document.getElementById('form-content').style.display='block';
+  document.getElementById('success-msg').style.display='none';
+  ['f-name','f-age','f-phone','f-village','f-district'].forEach(id => {
+    const el = document.getElementById(id);
+    if(el) el.value = '';
+  });
+  ['f-gender','f-caste','f-state','f-edu'].forEach(id => {
+    const el = document.getElementById(id);
+    if(el) el.value = '';
+  });
+  document.querySelectorAll('.skill-checkbox').forEach(s => {
+    s.classList.remove('selected');
+    s.querySelector('input').checked = false;
+  });
+}
+
+function submitContact() {
+  document.getElementById('contact-form').style.display='none';
+  document.getElementById('contact-success').style.display='block';
+}
+
+// ===== CHATBOT =====
+let chatOpen = false;
+let chatLang = 'hi';
+let chatHistory = [];
+let isTyping = false;
+
+const responses = {
+  hi: {
+    greetings: ["नमस्ते! मैं सखी AI सहायक हूं 🌸\nआप सखी शक्ति के बारे में क्या जानना चाहती/चाहते हैं?\n\nमैं स्वास्थ्य, प्रशिक्षण, रजिस्ट्रेशन और अन्य सवालों में मदद कर सकती हूं।\n\n(यह अल्का गौर फाउंडेशन की एक पहल है)"],
+    register: "सखी बनने के लिए आपकी उम्र 18-50 वर्ष होनी चाहिए। ग्रामीण क्षेत्र की महिलाएं प्राथमिकता। निःशुल्क 30-दिन प्रशिक्षण मिलता है। प्रमाण पत्र और मासिक आय ₹4000-₹8000 तक संभव है। जुड़ें पेज पर जाकर फॉर्म भरें! 📋",
+    health: "हम ये जांचें करते हैं:\n• रक्तचाप (BP)\n• शुगर जांच\n• हीमोग्लोबिन\n• वजन और BMI\n• मातृ-शिशु स्वास्थ्य\n• टीकाकरण ट्रैकिंग\n\nसभी जांचें गांव में ही, निःशुल्क। 🏥",
+    training: "प्रशिक्षण 30 दिन का है:\n• 10 दिन: स्वास्थ्य जांच\n• 7 दिन: डिजिटल साक्षरता\n• 7 दिन: बिक्री कौशल\n• 6 दिन: फील्ड अनुभव\n\nनिःशुल्क और सर्टिफाइड! 🎓",
+    income: "सखी की मासिक आय:\n💰 निश्चित स्टाइपेंड: ₹2,000\n🛒 बिक्री कमीशन: ₹1,500+\n⭐ प्रदर्शन बोनस: ₹500+\n\nकुल: ₹4,000 – ₹8,000 प्रतिमाह! 🎉",
+    contact: "हमसे संपर्क करें:\n📞 +91 98765 43210\n📧 hello@sakhishakti.org\n📍 Bundi, Rajasthan\n\nAGF (अल्का गौर फाउंडेशन):\n📞 +91 94689 27349\n📧 alkagaurfoundation@gmail.com\n📍 Jaipur, Rajasthan",
+    agf: "अल्का गौर फाउंडेशन (AGF) एक ISO-प्रमाणित NGO है:\n🌺 संस्थापक: डॉ. अल्का गौर\n📍 जयपुर, राजस्थान\n📅 स्थापना: 2020\n✅ 12A, 80G, NITI Aayog, CSR-1 पंजीकृत\n\nछह स्तंभ:\n🍽️ भोजन, 📚 शिक्षा, 🏥 स्वास्थ्य, 👩 महिला सशक्तिकरण, 🌿 पर्यावरण, 💜 कैंसर देखभाल\n\n🌐 alkagaurfoundation.vercel.app",
+    help: "मैं इन विषयों में मदद कर सकती हूं:\n• सखी कैसे बनें?\n• स्वास्थ्य सेवाएं\n• प्रशिक्षण की जानकारी\n• आय और कमाई\n• अल्का गौर फाउंडेशन\n• संपर्क जानकारी\n\nअपना सवाल पूछें! 😊",
+    default: "आपका सवाल मिला! इस बारे में हमारी टीम आपको जल्द जवाब देगी। अभी के लिए आप 📞 +91 98765 43210 पर कॉल कर सकती/सकते हैं।\n\nया 'जुड़ें' पेज पर अपना फॉर्म भरें। 🌸"
+  },
+  en: {
+    greetings: ["Hello! I'm Sakhi AI Assistant 🌸\nWhat would you like to know about Sakhi Shakti?\n\nI can help with health, training, registration, and other questions.\n\n(This is an initiative of Alka Gaur Foundation)"],
+    register: "To become a Sakhi, age 18-50 is required. Priority to rural women. Free 30-day training provided. Certificate and monthly income ₹4000-₹8000 possible. Go to 'Join Us' page to fill the form! 📋",
+    health: "We provide these services:\n• Blood Pressure (BP)\n• Sugar Test\n• Haemoglobin\n• Weight and BMI\n• Maternal-Child Health\n• Vaccination Tracking\n\nAll in your village, free of cost. 🏥",
+    training: "Training is 30 days:\n• 10 days: Health Screening\n• 7 days: Digital Literacy\n• 7 days: Sales Skills\n• 6 days: Field Experience\n\nFree and certified! 🎓",
+    income: "Sakhi's monthly income:\n💰 Fixed Stipend: ₹2,000\n🛒 Sales Commission: ₹1,500+\n⭐ Performance Bonus: ₹500+\n\nTotal: ₹4,000 – ₹8,000 per month! 🎉",
+    contact: "Contact us:\n📞 +91 98765 43210\n📧 hello@sakhishakti.org\n📍 Bundi, Rajasthan\n\nAlka Gaur Foundation (AGF):\n📞 +91 94689 27349\n📧 alkagaurfoundation@gmail.com\n📍 Jaipur, Rajasthan",
+    agf: "Alka Gaur Foundation (AGF) is an ISO-certified NGO:\n🌺 Founder: Dr. Alka Gaur\n📍 Jaipur, Rajasthan\n📅 Est: 2020\n✅ 12A, 80G, NITI Aayog, CSR-1 Registered\n\nSix Pillars:\n🍽️ Food, 📚 Education, 🏥 Healthcare, 👩 Women Empowerment, 🌿 Environment, 💜 Cancer Care\n\n🌐 alkagaurfoundation.vercel.app",
+    help: "I can help with:\n• How to become a Sakhi?\n• Health services\n• Training details\n• Income & earnings\n• Alka Gaur Foundation (AGF)\n• Contact information\n\nAsk your question! 😊",
+    default: "Got your question! Our team will respond soon. For now you can call 📞 +91 98765 43210\n\nOr fill your form on the 'Join Us' page. 🌸"
+  }
+};
+
+const quickRepliesData = {
+  hi: ['सखी कैसे बनें?', 'स्वास्थ्य जांच', 'आय कितनी होगी?', 'AGF क्या है?', 'संपर्क करें'],
+  en: ['How to join?', 'Health services', 'Income details', 'About AGF', 'Contact']
+};
+
+function getResponse(msg, lang) {
+  const m = msg.toLowerCase();
+  const r = responses[lang];
+  if(m.includes('join') || m.includes('sakhi') || m.includes('जुड़') || m.includes('बन') || m.includes('register') || m.includes('रजिस्टर')) return r.register;
+  if(m.includes('health') || m.includes('स्वास्थ्य') || m.includes('जांच') || m.includes('bp') || m.includes('sugar') || m.includes('शुगर')) return r.health;
+  if(m.includes('train') || m.includes('प्रशिक्षण') || m.includes('सीख') || m.includes('course')) return r.training;
+  if(m.includes('income') || m.includes('earn') || m.includes('salary') || m.includes('आय') || m.includes('कमाई') || m.includes('पैसा') || m.includes('stipend')) return r.income;
+  if(m.includes('agf') || m.includes('alka') || m.includes('अल्का') || m.includes('foundation') || m.includes('फाउंडेशन')) return r.agf;
+  if(m.includes('contact') || m.includes('संपर्क') || m.includes('phone') || m.includes('फोन') || m.includes('call') || m.includes('address')) return r.contact;
+  if(m.includes('help') || m.includes('मदद') || m.includes('सवाल') || m.includes('क्या')) return r.help;
+  return r.default;
+}
+
+function openChat() {
+  chatOpen = true;
+  document.getElementById('chat-window').classList.add('open');
+  document.getElementById('chat-fab').style.display = 'none';
+  if(chatHistory.length === 0) {
+    setTimeout(() => addBotMessage(responses[chatLang].greetings[0]), 300);
+    setTimeout(() => updateQuickReplies(), 400);
+  }
+}
+
+function closeChat() {
+  chatOpen = false;
+  document.getElementById('chat-window').classList.remove('open');
+  document.getElementById('chat-fab').style.display = 'flex';
+}
+
+function setChatLang(lang) {
+  chatLang = lang;
+  document.getElementById('cl-hi').className = 'chat-lang-opt' + (lang==='hi'?' active':'');
+  document.getElementById('cl-en').className = 'chat-lang-opt' + (lang==='en'?' active':'');
+  document.getElementById('chat-input').placeholder = lang==='hi' ? 'यहाँ लिखें...' : 'Type here...';
+  updateQuickReplies();
+}
+
+function updateQuickReplies() {
+  const qr = document.getElementById('quick-replies');
+  qr.innerHTML = quickRepliesData[chatLang].map(q =>
+    `<button class="quick-btn" onclick="sendQuick('${q}')">${q}</button>`
+  ).join('');
+}
+
+function sendQuick(text) {
+  document.getElementById('chat-input').value = text;
+  sendChat();
+}
+
+function addBotMessage(text) {
+  const msgs = document.getElementById('chat-messages');
+  const div = document.createElement('div');
+  div.className = 'msg bot';
+  div.style.whiteSpace = 'pre-wrap';
+  div.textContent = text;
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+  chatHistory.push({role:'assistant', content: text});
+}
+
+function addUserMessage(text) {
+  const msgs = document.getElementById('chat-messages');
+  const div = document.createElement('div');
+  div.className = 'msg user';
+  div.textContent = text;
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+  chatHistory.push({role:'user', content: text});
+}
+
+function showTyping() {
+  const msgs = document.getElementById('chat-messages');
+  const div = document.createElement('div');
+  div.className = 'msg typing';
+  div.id = 'typing-indicator';
+  div.innerHTML = '<div class="dot"></div><div class="dot"></div><div class="dot"></div>';
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+function hideTyping() {
+  const t = document.getElementById('typing-indicator');
+  if(t) t.remove();
+}
+
+async function sendChat() {
+  const input = document.getElementById('chat-input');
+  const text = input.value.trim();
+  if(!text || isTyping) return;
+  input.value = '';
+  addUserMessage(text);
+  isTyping = true;
+  document.getElementById('chat-status-text').textContent = chatLang==='hi' ? '● टाइप कर रही है...' : '● typing...';
+  showTyping();
+
+  try {
+    const sysPrompt = chatLang === 'hi'
+      ? `तुम सखी शक्ति संगठन की AI सहायक हो। सखी शक्ति एक ग्रामीण महिला स्वास्थ्य और उद्यमिता नेटवर्क है जो राजस्थान में काम करती है — यह अल्का गौर फाउंडेशन (AGF) की एक पहल है। AGF की संस्थापक डॉ. अल्का गौर हैं, जो जयपुर, राजस्थान में 2020 से काम कर रही हैं। AGF ISO-प्रमाणित, 12A, 80G, NITI Aayog और CSR-1 पंजीकृत NGO है। सखी बनने पर ₹4000-8000/माह की कमाई होती है। हमेशा सरल हिंदी में, संक्षिप्त और मित्रवत जवाब दो।`
+      : `You are the AI assistant for Sakhi Shakti, a rural women's health and entrepreneurship network in Rajasthan, India — an initiative of Alka Gaur Foundation (AGF), founded by Dr. Alka Gaur in Jaipur, Rajasthan (Est. 2020). AGF is ISO-certified, registered: 12A, 80G, NITI Aayog, CSR-1. Women earn ₹4000-8000/month as Sakhis. Always respond simply, briefly, and in a friendly tone.`;
+
+    const messages = chatHistory.slice(-6).concat([{role:'user',content:text}]);
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 300,
+        system: sysPrompt,
+        messages: messages
+      })
+    });
+    const data = await res.json();
+    hideTyping();
+    const reply = data.content && data.content[0] ? data.content[0].text : getResponse(text, chatLang);
+    addBotMessage(reply);
+  } catch(e) {
+    hideTyping();
+    addBotMessage(getResponse(text, chatLang));
+  }
+
+  isTyping = false;
+  document.getElementById('chat-status-text').textContent = '● Online';
+}
+</script>
+</body>
+</html>
